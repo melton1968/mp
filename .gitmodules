@@ -1,3 +1,0 @@
-[submodule "extern/cxx-depends"]
-	path = extern/cxx-depends
-	url = git@github.com:melton1968/cxx-depends
