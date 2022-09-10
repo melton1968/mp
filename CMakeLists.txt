@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
-project (cxx-core-mp VERSION 0.1 LANGUAGES C CXX)
+project (cxx_core_mp VERSION 0.1 LANGUAGES C CXX)
 
 # Make including this file idempotent
 #
@@ -30,8 +30,7 @@ option(CORE_MP_DOCS "Generate the docs." OFF)
 # Add our dependencies
 #
 include(GNUInstallDirs)
-add_subdirectory(extern/cxx-depends)
-add_dependencies(cxx_depends cxx_core_pp)
+find_package(cxx_core_pp)
 
 # Output configuration
 #
@@ -58,25 +57,6 @@ target_include_directories(cxx_core_mp
   INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-
-# set(SOURCES
-#   )
-
-# foreach(NAME ${SOURCES})
-#   list(APPEND FILES "src/core/${NAME}.cpp")
-# endforeach()
-
-# add_library(cxx_core_mp ${FILES})
-# target_link_libraries(cxx_core_mp)
-# target_include_directories(cxx_core_mp PUBLIC include)
-
-# set(TOOLS
-#   )
-
-# foreach(NAME ${TOOLS})
-#   add_executable(${NAME} src/tools/${NAME}.cpp)
-#   target_link_libraries(${NAME} PUBLIC cxx_core_mp Threads::Threads)
-# endforeach()
 
 # Optionally configure the tests
 #
@@ -105,21 +85,21 @@ install(TARGETS cxx_core_mp
 
 # The CMake config installation
 #
-set(CORE_MP_CONFIG_VERSION_NAME "${PROJECT_NAME}ConfigVersion.cmake")
-set(CORE_MP_CONFIG_NAME "${PROJECT_NAME}Config.cmake")
-set(CORE_MP_CONFIG_FILE_IN "${PROJECT_SOURCE_DIR}/cmake/${CORE_MP_CONFIG_NAME}.in")
-set(CORE_MP_CONFIG_FILE "${PROJECT_BINARY_DIR}/${CORE_MP_CONFIG_NAME}")
+set(CONFIG_VERSION_NAME "${PROJECT_NAME}ConfigVersion.cmake")
+set(CONFIG_NAME "${PROJECT_NAME}Config.cmake")
+set(CONFIG_FILE_IN "${PROJECT_SOURCE_DIR}/cmake/${CONFIG_NAME}.in")
+set(CONFIG_FILE "${PROJECT_BINARY_DIR}/${CONFIG_NAME}")
 
-message("-- cxx-core-mp: CORE_MP_CONFIG_VERSION_NAME ${CORE_MP_CONFIG_VERSION_NAME}")
-message("-- cxx-core-mp: CORE_MP_CONFIG_NAME ${CORE_MP_CONFIG_NAME}")
-message("-- cxx-core-mp: CORE_MP_CONFIG_FILE ${CORE_MP_CONFIG_FILE}")
+message("-- cxx-core-mp: CONFIG_VERSION_NAME ${CONFIG_VERSION_NAME}")
+message("-- cxx-core-mp: CONFIG_NAME ${CONFIG_NAME}")
+message("-- cxx-core-mp: CONFIG_FILE ${CONFIG_FILE}")
 
 include(CMakePackageConfigHelpers)
-write_basic_package_version_file(${CORE_MP_CONFIG_VERSION_NAME}
+write_basic_package_version_file(${CONFIG_VERSION_NAME}
   VERSION ${PROJECT_VERSION}
   COMPATIBILITY SameMajorVersion)
 
-configure_package_config_file(${CORE_MP_CONFIG_FILE_IN} ${CORE_MP_CONFIG_FILE}
+configure_package_config_file(${CONFIG_FILE_IN} ${CONFIG_FILE}
   INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 
 install(EXPORT ${PROJECT_NAME}_Targets
@@ -128,8 +108,8 @@ install(EXPORT ${PROJECT_NAME}_Targets
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 
 install(FILES
-  "${CORE_MP_CONFIG_FILE}"
-  "${PROJECT_BINARY_DIR}/${CORE_MP_CONFIG_VERSION_NAME}"
+  "${CONFIG_FILE}"
+  "${PROJECT_BINARY_DIR}/${CONFIG_VERSION_NAME}"
   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core)
