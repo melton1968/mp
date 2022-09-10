@@ -15,7 +15,7 @@ jobs:
     - name: SSH Agent
       uses: webfactory/ssh-agent@v0.5.4
       with:
-        ssh-private-key: ${{ secrets.CXX_CORE_MP }} ${{ secrets.CXX_DEPENDS }}
+        ssh-private-key: ${{ secrets.CXX_CORE_MP }} ${{ secrets.CXX_CORE_PP }} ${{ secrets.CXX_DEPENDS }}
         
     - name: Checkout cxx-core-mp
       uses: actions/checkout@v2
