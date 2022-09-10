@@ -31,6 +31,7 @@ option(CORE_MP_DOCS "Generate the docs." OFF)
 #
 include(GNUInstallDirs)
 add_subdirectory(extern/cxx-depends)
+add_dependencies(cxx_depends cxx_core_pp)
 
 # Output configuration
 #
@@ -53,7 +54,8 @@ add_compile_options(-O)
 add_link_options(-stdlib=libc++)
 
 add_library(cxx_core_mp INTERFACE)
-target_include_directories(cxx_core_mp INTERFACE
+target_include_directories(cxx_core_mp
+  INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 

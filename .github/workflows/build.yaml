@@ -17,19 +17,35 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.CXX_CORE_MP }} ${{ secrets.CXX_DEPENDS }}
         
+    - name: Checkout cxx-depends
+      uses: actions/checkout@v2
+      with:
+        repository: melton1968/cxx-depends
+        path: cxx-depends
+
     - name: Checkout repo
       uses: actions/checkout@v2
       with:
+        repository: melton1968/cxx-core-mp
         submodules: true
+        path: cxx-core-mp
         
+    - name: Build dependencies
+      run: |
+        export CC=clang-11
+        export CXX=clang++-11
+        mkdir -p cxx-depends/build && pushd cxx-depends/build
+        cmake -DDEPENDS_TARGET_DIR=${PWD}/opt -DCMAKE_INSTALL_PREFIX=${PWD}/opt ..
+        make cxx_core_pp cxx_googletest
+        popd
+
     - name: Build and run the tests
       run: |
         export CC=clang-11
         export CXX=clang++-11
-        mkdir -p build && pushd build
+        mkdir -p cxx-core-mp/build && pushd cxx-core-mp/build
         cmake -DDEPENDS_TARGET_DIR=${PWD}/opt -DCMAKE_INSTALL_PREFIX=${PWD}/opt ..
         make cxx_depends
         make
         make check
         popd
-      
