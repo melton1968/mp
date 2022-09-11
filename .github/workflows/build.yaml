@@ -2,6 +2,8 @@
 name: Build and Unit Test
 
 on:
+  push: [ 'main' ]
+  
   workflow_dispatch:
 
 jobs:
