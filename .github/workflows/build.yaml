@@ -36,7 +36,7 @@ jobs:
         export CXX=clang++-11
         mkdir -p cxx-depends/build && pushd cxx-depends/build
         cmake -DCMAKE_INSTALL_PREFIX=$HOME/opt ..
-        make cxx_googletest cxx_core_pp install
+        make cxx_core_pp googletest
         popd
 
     - name: Build and run the tests
