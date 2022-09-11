@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.12 FATAL_ERROR)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
 
-find_package(cxx_googletest REQUIRED)
+find_package(googletest REQUIRED)
 find_package(Threads REQUIRED)
 
 set(TESTS
@@ -57,10 +57,10 @@ foreach(NAME ${TESTS})
   add_test(${TEST_NAME} bin/${TEST_NAME})
   
   target_link_libraries(${TEST_NAME}
-    PUBLIC cxx_core_mp cxx_googletest::googletest Threads::Threads)
+    PUBLIC cxx_core_mp googletest::cxx-googletest Threads::Threads)
   
   target_include_directories(${TEST_NAME}
-    PUBLIC ../include/core cxx_googletest:googletest)
+    PUBLIC ../include/core)
   
   add_dependencies(check ${TEST_NAME})
   add_dependencies(check_detail ${TEST_NAME})
