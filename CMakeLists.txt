@@ -75,42 +75,13 @@ if(CORE_MP_DOCS)
   add_subdirectory(docs)
 endif()
 
-# Installation
+
+# Install header files
 #
-install(TARGETS cxx_core_mp
-  EXPORT ${PROJECT_NAME}_Targets
-  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR})
-
-# The CMake config installation
-#
-set(CONFIG_VERSION_NAME "${PROJECT_NAME}ConfigVersion.cmake")
-set(CONFIG_NAME "${PROJECT_NAME}Config.cmake")
-set(CONFIG_FILE_IN "${PROJECT_SOURCE_DIR}/cmake/${CONFIG_NAME}.in")
-set(CONFIG_FILE "${PROJECT_BINARY_DIR}/${CONFIG_NAME}")
-
-message("-- cxx-core-mp: CONFIG_VERSION_NAME ${CONFIG_VERSION_NAME}")
-message("-- cxx-core-mp: CONFIG_NAME ${CONFIG_NAME}")
-message("-- cxx-core-mp: CONFIG_FILE ${CONFIG_FILE}")
-
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(${CONFIG_VERSION_NAME}
-  VERSION ${PROJECT_VERSION}
-  COMPATIBILITY SameMajorVersion)
-
-configure_package_config_file(${CONFIG_FILE_IN} ${CONFIG_FILE}
-  INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
-
-install(EXPORT ${PROJECT_NAME}_Targets
-        FILE ${PROJECT_NAME}Targets.cmake
-        NAMESPACE ${PROJECT_NAME}::
-        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
-
-install(FILES
-  "${CONFIG_FILE}"
-  "${PROJECT_BINARY_DIR}/${CONFIG_VERSION_NAME}"
-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
-
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core/)
+
+# Install config
+#
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install_config.cmake)
+install_config(cxx_core_mp)
 

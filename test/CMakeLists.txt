@@ -36,33 +36,36 @@ set(TESTS
   )
 
 
-foreach(NAME ${TESTS})
-  get_filename_component(DIRNAME ${NAME} DIRECTORY)
-  get_filename_component(BASENAME ${NAME} NAME_WE)
-  string(REPLACE / _ CATNAME ${NAME})
-  
-  set(TEST_NAME test_${CATNAME})
-  set(TEST_FILE1 ${PROJECT_SOURCE_DIR}/test/src/core/${DIRNAME}/test_${BASENAME}.cpp)
-  set(TEST_FILE2 ${PROJECT_SOURCE_DIR}/test/src/core/${DIRNAME}/test_${CATNAME}.cpp)
-  if(EXISTS ${TEST_FILE1})
-    set(TEST_FILE ${TEST_FILE1})
-  elseif(EXISTS ${TEST_FILE2})
-    set(TEST_FILE ${TEST_FILE2})
-  else()
-    message(FATAL "Cannot find test file for ${NAME}")
-  endif()
+include(${CMAKE_CURRENT_SOURCE_DIR}/../cmake/configure_tests.cmake)
+set(LIBS "cxx_core_mp;googletest::cxx-googletest;Threads::Threads")
+configure_tests("core" "${LIBS}" ${TESTS})
 
-  list(APPEND TEST_TARGETS ${TEST_NAME})
-  add_executable(${TEST_NAME} ${TEST_FILE})
-  add_test(${TEST_NAME} bin/${TEST_NAME})
+# foreach(NAME ${TESTS})
+#   get_filename_component(DIRNAME ${NAME} DIRECTORY)
+#   get_filename_component(BASENAME ${NAME} NAME_WE)
+#   string(REPLACE / _ CATNAME ${NAME})
   
-  target_link_libraries(${TEST_NAME}
-    PUBLIC cxx_core_mp googletest::cxx-googletest Threads::Threads)
+#   set(TEST_NAME test_${CATNAME})
+#   set(TEST_FILE1 ${PROJECT_SOURCE_DIR}/test/src/core/${DIRNAME}/test_${BASENAME}.cpp)
+#   set(TEST_FILE2 ${PROJECT_SOURCE_DIR}/test/src/core/${DIRNAME}/test_${CATNAME}.cpp)
+#   if(EXISTS ${TEST_FILE1})
+#     set(TEST_FILE ${TEST_FILE1})
+#   elseif(EXISTS ${TEST_FILE2})
+#     set(TEST_FILE ${TEST_FILE2})
+#   else()
+#     message(FATAL "Cannot find test file for ${NAME}")
+#   endif()
+
+#   add_executable(${TEST_NAME} EXCLUDE_FROM_ALL ${TEST_FILE})
+#   add_test(${TEST_NAME} bin/${TEST_NAME})
   
-  target_include_directories(${TEST_NAME}
-    PUBLIC ../include/core)
+#   target_link_libraries(${TEST_NAME}
+#     PUBLIC cxx_core_mp googletest::cxx-googletest Threads::Threads)
   
-  add_dependencies(check ${TEST_NAME})
-  add_dependencies(check_detail ${TEST_NAME})
-endforeach(NAME)
+#   target_include_directories(${TEST_NAME}
+#     PUBLIC ../include/core)
+  
+#   add_dependencies(check ${TEST_NAME})
+#   add_dependencies(check_detail ${TEST_NAME})
+# endforeach(NAME)
 

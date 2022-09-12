@@ -1,9 +1,9 @@
-// Copyright (C) 2017, 2018, 2019 by Mark Melton
+// Copyright (C) 2017, 2018, 2019, 2022 by Mark Melton
 //
 
 #include <gtest/gtest.h>
-#include "mp/permutation.h"
-#include "mp/constants.h"
+#include "core/mp/permutation.h"
+#include "core/mp/constants.h"
 
 using namespace core;
 using ::testing::StaticAssertTypeEq;

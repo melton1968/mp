@@ -2,8 +2,8 @@
 //
 
 #include <gtest/gtest.h>
-#include "mp/list.h"
-#include "mp/constants.h"
+#include "core/mp/list.h"
+#include "core/mp/constants.h"
 
 using namespace core;
 using ::testing::StaticAssertTypeEq;
