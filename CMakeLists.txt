@@ -30,7 +30,8 @@ option(CORE_MP_DOCS "Generate the docs." OFF)
 # Add our dependencies
 #
 include(GNUInstallDirs)
-find_package(cxx_core_pp)
+find_package(fmt REQUIRED)
+find_package(cxx_core_pp REQUIRED)
 
 # Output configuration
 #
