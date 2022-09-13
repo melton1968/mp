@@ -30,6 +30,9 @@ set(TESTS
   mp/sort
   mp/subtract
   mp/swap
+  mp/traits/extrema
+  mp/traits/number
+  mp/traits/type
   mp/transform
   mp/type_name
   mp/union
