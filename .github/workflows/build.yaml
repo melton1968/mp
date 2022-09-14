@@ -42,7 +42,7 @@ jobs:
         export CC=clang-11
         export CXX=clang++-11
         mkdir -p cxx-depends/build && pushd cxx-depends/build
-        cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/opt ..
+        cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/opt -DCORE_TEST=ON ..
         make cxx_core_mp-depends
         popd
 
