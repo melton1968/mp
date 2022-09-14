@@ -43,7 +43,7 @@ jobs:
         export CXX=clang++-11
         mkdir -p cxx-depends/build && pushd cxx-depends/build
         cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/opt ..
-        make cxx_core_pp googletest fmt
+        make cxx_core_mp-depends
         popd
 
     - name: Build and run the tests
