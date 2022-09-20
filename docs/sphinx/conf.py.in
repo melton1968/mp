@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'cxx-core-pp'
+project = 'cxx-core-mp'
 copyright = '2019, 2022, Mark Melton'
 author = 'Mark Melton'
 
