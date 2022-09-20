@@ -54,10 +54,6 @@ add_compile_options(-O)
 add_link_options(-stdlib=libc++)
 
 add_library(cxx_core_mp INTERFACE)
-target_include_directories(cxx_core_mp
-  INTERFACE
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 # Optionally configure the tests
 #
@@ -79,7 +75,7 @@ endif()
 
 # Install header files
 #
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core/)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core)
 
 # Install config
 #
