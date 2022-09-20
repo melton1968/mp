@@ -1,0 +1,13 @@
+
+
+.. _include/core/mp/traits:
+
+traits
+==========
+
+.. toctree::
+   :maxdepth: 1
+
+   extrema.h
+   number.h
+   type.h

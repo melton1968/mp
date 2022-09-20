@@ -1,0 +1,42 @@
+
+
+.. _include/core/mp:
+
+mp
+======
+
+.. toctree::
+   :maxdepth: 1
+
+   traits/ <traits/dir>
+   append.h
+   at.h
+   cat.h
+   constants.h
+   contains.h
+   enable_if.h
+   find_index.h
+   foreach.h
+   generate.h
+   homogeneous.h
+   if.h
+   intersect.h
+   iterator.h
+   list.h
+   make_index_range.h
+   map_find.h
+   meta.h
+   mp.h
+   nth.h
+   permutation.h
+   push_front.h
+   remove.h
+   same.h
+   sort.h
+   subset.h
+   subtract.h
+   swap.h
+   transform.h
+   type_name.h
+   union.h
+   unique.h

@@ -1,0 +1,34 @@
+
+
+.. _test/src/core/mp/test_mp_push_front.cpp:
+
+test_mp_push_front.cpp
+===========================================
+
+.. code-block:: cpp
+
+    // Copyright (C) 2017, 2019, 2022 by Mark Melton
+    //
+    
+    #include <gtest/gtest.h>
+    #include "core/mp/push_front.h"
+    #include "core/mp/constants.h"
+    
+    using namespace core;
+    using ::testing::StaticAssertTypeEq;
+    
+    TEST(MP, PushFront)
+    {
+        using L = mp::list<mp_a,mp_b,mp_c>;
+        {
+            using R = mp::list<mp_d,mp_a,mp_b,mp_c>;
+            using A = mp::push_front_t<mp_d,L>;
+            StaticAssertTypeEq<A,R>();
+        }
+    }
+    
+    int main(int argc, char *argv[])
+    {
+        ::testing::InitGoogleTest(&argc, argv);
+        return RUN_ALL_TESTS();
+    }

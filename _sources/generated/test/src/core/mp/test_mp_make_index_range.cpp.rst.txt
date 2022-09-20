@@ -1,0 +1,43 @@
+
+
+.. _test/src/core/mp/test_mp_make_index_range.cpp:
+
+test_mp_make_index_range.cpp
+=================================================
+
+.. code-block:: cpp
+
+    // Copyright (C) 2017, 2019, 2022 by Mark Melton
+    //
+    
+    #include <gtest/gtest.h>
+    #include "core/mp/make_index_range.h"
+    #include "core/mp/constants.h"
+    
+    using namespace core;
+    using ::testing::StaticAssertTypeEq;
+    
+    TEST(MP, MakeIndexRange)
+    {
+        {
+            using A = std::integer_sequence<std::size_t>;
+            using R = mp::make_index_range_t<mp_7u,mp_7u>;
+            StaticAssertTypeEq<R,A>();
+        }
+        {
+            using A = std::integer_sequence<std::size_t,1>;
+            using R = mp::make_index_range_t<mp_1u,mp_2u>;
+            StaticAssertTypeEq<R,A>();
+        }
+        {
+            using A = std::integer_sequence<std::size_t,4,5,6,7>;
+            using R = mp::make_index_range_t<mp_4u,mp_8u>;
+            StaticAssertTypeEq<R,A>();
+        }
+    }
+    
+    int main(int argc, char *argv[])
+    {
+        ::testing::InitGoogleTest(&argc, argv);
+        return RUN_ALL_TESTS();
+    }

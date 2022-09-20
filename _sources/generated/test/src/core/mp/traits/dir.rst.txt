@@ -1,0 +1,13 @@
+
+
+.. _test/src/core/mp/traits:
+
+traits
+==========
+
+.. toctree::
+   :maxdepth: 1
+
+   test_mp_traits_extrema.cpp
+   test_mp_traits_number.cpp
+   test_mp_traits_type.cpp

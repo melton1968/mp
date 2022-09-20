@@ -1,0 +1,40 @@
+
+
+.. _test/src/core/mp:
+
+mp
+======
+
+.. toctree::
+   :maxdepth: 1
+
+   traits/ <traits/dir>
+   test_mp_append.cpp
+   test_mp_at.cpp
+   test_mp_cat.cpp
+   test_mp_contains.cpp
+   test_mp_enable_if.cpp
+   test_mp_find_index.cpp
+   test_mp_foreach.cpp
+   test_mp_generate.cpp
+   test_mp_homogeneous.cpp
+   test_mp_if.cpp
+   test_mp_intersect.cpp
+   test_mp_is_integral_constant.cpp
+   test_mp_is_subset_of.cpp
+   test_mp_iterator.cpp
+   test_mp_list.cpp
+   test_mp_make_index_range.cpp
+   test_mp_map_find.cpp
+   test_mp_nth.cpp
+   test_mp_permutation.cpp
+   test_mp_push_front.cpp
+   test_mp_remove.cpp
+   test_mp_same.cpp
+   test_mp_sort.cpp
+   test_mp_subtract.cpp
+   test_mp_swap.cpp
+   test_mp_transform.cpp
+   test_mp_type_name.cpp
+   test_mp_union.cpp
+   test_mp_unique.cpp

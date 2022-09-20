@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cxx-core-mp &mdash; cxx-core-mp  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="api/intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> cxx-core-mp
+            <img src="_static/cxx-core.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/construct.html">Constructing Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Querying Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/operate.html">Operating on Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/predicate.html">Predicates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/enableif.html">Enable If</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utility.html">Untilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FILE REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="generated/include/dir.html">include/</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/test/dir.html">test/</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">cxx-core-mp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>cxx-core-mp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cxx-core-mp">
+<h1>cxx-core-mp<a class="headerlink" href="#cxx-core-mp" title="Permalink to this heading">¶</a></h1>
+<p>Primitives for structured metaprogramming along with convenience
+functions for runtime-type information.</p>
+</section>
+<section id="brief-tour">
+<h1>Brief Tour<a class="headerlink" href="#brief-tour" title="Permalink to this heading">¶</a></h1>
+<p>Concepts and the related C++20 features generally allow for the
+concise expression of intent when working with types. This simplifies
+many type oriented tasks and reduces the need for a separate
+metaprogramming library. This library targets common patterns which
+are either complex or awkward to implement directly and attempts to
+provide a simple, ergonomic option.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;core/pp/mp.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+</section>
+<section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<section id="cxx-depends">
+<h2>cxx-depends<a class="headerlink" href="#cxx-depends" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:melton1968/cxx-depends
+mkdir cxx-depends/build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> cxx-depends/build
+<span class="nv">CC</span><span class="o">=</span>clang-mp-11 <span class="nv">CXX</span><span class="o">=</span>clang++-mp-11 cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/opt -DCORE_TESTS<span class="o">=</span>ON ..
+make cxx_core_mp-check  <span class="c1"># Run the tests</span>
+make cxx_core_mp        <span class="c1"># Do the install</span>
+</pre></div>
+</div>
+<p>To build the documentation (requires doxygen and sphinx-build to be installed):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CC</span><span class="o">=</span>clang-11 <span class="nv">CXX</span><span class="o">=</span>clang++11 cmake -DCORE_DOCS ..
+make cxx_core_mp_docs <span class="c1"># root of html tree is docs/html/index.html</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this heading">¶</a></h1>
+<p><em>cxx-core-mp</em> is part of the <em>cxx-core</em>* family of C++20 based
+libraries. The <em>cxx-core</em> libraries have two primary goals:</p>
+<ul class="simple">
+<li><p><strong>Ergonomics</strong>. In the spirit of the <code class="docutils literal notranslate"><span class="pre">CppCoreGuideLines</span></code>, cxx-core
+aspires to facilitate writing concise, idiomatic code not by force,
+but by providing a clear path that produces robust, easy to read
+code. Good code should be fun to write.</p></li>
+<li><p><strong>Components</strong>. Modern language platforms provide broad support for
+first-class library components, while C++ has traditionally only
+provided a very minimal standard library. <em>cxx-core</em> aspires to
+provide support for a broad range of libraries that feel like part
+of the language.</p></li>
+</ul>
+</section>
+<section id="appendix">
+<h1>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/construct.html">Constructing Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Querying Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/operate.html">Operating on Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/predicate.html">Predicates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/enableif.html">Enable If</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utility.html">Untilities</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">FILE REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="generated/include/dir.html">include/</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/include/core/dir.html">core/</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/include/core/mp/dir.html">mp/</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/traits/dir.html">traits/</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="generated/include/core/mp/traits/extrema.h.html">extrema.h</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/include/core/mp/traits/number.h.html">number.h</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/include/core/mp/traits/type.h.html">type.h</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/append.h.html">append.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/at.h.html">at.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/cat.h.html">cat.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/constants.h.html">constants.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/contains.h.html">contains.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/enable_if.h.html">enable_if.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/find_index.h.html">find_index.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/foreach.h.html">foreach.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/generate.h.html">generate.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/homogeneous.h.html">homogeneous.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/if.h.html">if.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/intersect.h.html">intersect.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/iterator.h.html">iterator.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/list.h.html">list.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/make_index_range.h.html">make_index_range.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/map_find.h.html">map_find.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/meta.h.html">meta.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/mp.h.html">mp.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/nth.h.html">nth.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/permutation.h.html">permutation.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/push_front.h.html">push_front.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/remove.h.html">remove.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/same.h.html">same.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/sort.h.html">sort.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/subset.h.html">subset.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/subtract.h.html">subtract.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/swap.h.html">swap.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/transform.h.html">transform.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/type_name.h.html">type_name.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/union.h.html">union.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/include/core/mp/unique.h.html">unique.h</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generated/test/dir.html">test/</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/test/src/dir.html">src/</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/test/src/core/dir.html">core/</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/test/src/core/mp/dir.html">mp/</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/traits/dir.html">traits/</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_append.cpp.html">test_mp_append.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_at.cpp.html">test_mp_at.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_cat.cpp.html">test_mp_cat.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_contains.cpp.html">test_mp_contains.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_enable_if.cpp.html">test_mp_enable_if.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_find_index.cpp.html">test_mp_find_index.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_foreach.cpp.html">test_mp_foreach.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_generate.cpp.html">test_mp_generate.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_homogeneous.cpp.html">test_mp_homogeneous.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_if.cpp.html">test_mp_if.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_intersect.cpp.html">test_mp_intersect.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_is_integral_constant.cpp.html">test_mp_is_integral_constant.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_is_subset_of.cpp.html">test_mp_is_subset_of.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_iterator.cpp.html">test_mp_iterator.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_list.cpp.html">test_mp_list.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_make_index_range.cpp.html">test_mp_make_index_range.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_map_find.cpp.html">test_mp_map_find.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_nth.cpp.html">test_mp_nth.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_permutation.cpp.html">test_mp_permutation.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_push_front.cpp.html">test_mp_push_front.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_remove.cpp.html">test_mp_remove.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_same.cpp.html">test_mp_same.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_sort.cpp.html">test_mp_sort.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_subtract.cpp.html">test_mp_subtract.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_swap.cpp.html">test_mp_swap.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_transform.cpp.html">test_mp_transform.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_type_name.cpp.html">test_mp_type_name.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_union.cpp.html">test_mp_union.cpp</a></li>
+<li class="toctree-l5"><a class="reference internal" href="generated/test/src/core/mp/test_mp_unique.cpp.html">test_mp_unique.cpp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api/intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, 2022, Mark Melton.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
