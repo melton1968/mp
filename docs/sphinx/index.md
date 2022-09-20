@@ -58,11 +58,13 @@ libraries. The *cxx-core* libraries have two primary goals:
 ---
 caption: API REFERENCE
 ---
-api/conditional
-api/list
-api/map
-api/sequence
-api/utilities
+api/intro
+api/construct
+api/query
+api/operate
+api/predicate
+api/enableif
+api/utility
 ```
 
 ```{toctree}
