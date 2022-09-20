@@ -19,11 +19,9 @@ list.h
     template<typename... Ts>
     struct list { };
     
-    /**
-       @brief Create a list from the given types.
-       @tparam Ts... The types to make a list from.
-       @returns A list with the types Ts...
-     */
+    /// Create a type list of the types **Ts**.
+    ///
+    /// \tparam Ts The types to put in the type list.
     template<typename... Ts>
     using list_t = list<Ts...>;
     
@@ -42,12 +40,16 @@ list.h
         using type = typename impl<A,B>::type;
     };
     
-    /**
-       @brief Rename a list.
-       @tparam L The list to rename (of the form T<Ts...>)
-       @tparam W The new list wrapper, i.e. a template template parameter
-       @returns The list W<Ts...>
-     */
+    /// Rename the type list **L** with the variadic template name **N**.
+    ///
+    /// \tparam L The type list to rename.
+    /// \tparam N The new variadic template name.
+    ///
+    /// \verbatim embed:rst:leading-slashes
+    /// ```{code-block} cpp
+    /// rename_t<list<int,char>,std::tuple> // std::tuple<int,char>
+    /// ```
+    /// \endverbatim
     template<class L, template<class...> class N>
     using rename_t = typename rename<L, N>::type;
     

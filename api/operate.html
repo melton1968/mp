@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Operating on Lists &mdash; cxx-core-mp  documentation</title>
+  <title>List Operations &mdash; cxx-core-mp  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -42,9 +42,9 @@
               <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="construct.html">Constructing Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="construct.html">List Construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="query.html">Querying Lists</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Operating on Lists</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">List Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="predicate.html">Predicates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enableif.html">Enable If</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utility.html">Untilities</a></li>
@@ -69,7 +69,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Operating on Lists</li>
+      <li>List Operations</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/operate.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -79,18 +79,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="operating-on-lists">
-<h1>Operating on Lists<a class="headerlink" href="#operating-on-lists" title="Permalink to this heading">¶</a></h1>
+  <section id="list-operations">
+<h1>List Operations<a class="headerlink" href="#list-operations" title="Permalink to this heading">¶</a></h1>
+<p>The following type functions are used to operate on lists in various
+ways.</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4IDpEN4core2mp11intersect_tE">
 <span id="_CPPv3IDpEN4core2mp11intersect_tE"></span><span id="_CPPv2IDpEN4core2mp11intersect_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">Ls</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="intersect_8h_1a11149ff88e1d6ce226be9ea4a7de4f29"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">intersect_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">intersect</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4IDpEN4core2mp11intersect_tE" title="core::mp::intersect_t::Ls"><span class="n"><span class="pre">Ls</span></span></a><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4IDpEN4core2mp11intersect_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Intersect the given lists. </p>
+<dd><p>Intersect the given type lists <strong>Ls</strong>.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">intersect_t</span><span class="o">&lt;</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">,</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="c1">// list&lt;int&gt;</span>
+</pre></div>
+</div>
+</p>
+ </p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Ls...</strong> – The lists to intersect </p>
-</dd>
-<dt class="field-even">Return<span class="colon">:</span></dt>
-<dd class="field-even"><p>The intersection of the the given lists </p>
+<dd class="field-odd"><p><strong>Ls</strong> – The type lists to intersect.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -99,6 +103,44 @@
 <dt class="sig sig-object cpp" id="_CPPv4I00EN4core2mp13permutation_tE">
 <span id="_CPPv3I00EN4core2mp13permutation_tE"></span><span id="_CPPv2I00EN4core2mp13permutation_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">S</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="permutation_8h_1a8fdea6e6679604882c1636b61a903781"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">permutation_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">permutation</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN4core2mp13permutation_tE" title="core::mp::permutation_t::S"><span class="n"><span class="pre">S</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00EN4core2mp13permutation_tE" title="core::mp::permutation_t::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I00EN4core2mp13permutation_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4I00EN4core2mp8remove_tE">
+<span id="_CPPv3I00EN4core2mp8remove_tE"></span><span id="_CPPv2I00EN4core2mp8remove_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">V</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="remove_8h_1a1c51c27e9330552999322047636a04f2"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">remove_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">remove</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN4core2mp8remove_tE" title="core::mp::remove_t::V"><span class="n"><span class="pre">V</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00EN4core2mp8remove_tE" title="core::mp::remove_t::L"><span class="n"><span class="pre">L</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I00EN4core2mp8remove_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove all occurrences of type <strong>V</strong> from the type list <strong>L</strong></p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">remove_t</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">char</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="c1">// list&lt;char&gt;</span>
+</pre></div>
+</div>
+</p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> – The type to remove. </p></li>
+<li><p><strong>L</strong> – The type list.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4I00EN4core2mp13remove_list_tE">
+<span id="_CPPv3I00EN4core2mp13remove_list_tE"></span><span id="_CPPv2I00EN4core2mp13remove_list_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">S</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="remove_8h_1a864f49ec1532f09d93afccf8d213996d"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">remove_list_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">remove_list</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN4core2mp13remove_list_tE" title="core::mp::remove_list_t::S"><span class="n"><span class="pre">S</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00EN4core2mp13remove_list_tE" title="core::mp::remove_list_t::L"><span class="n"><span class="pre">L</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I00EN4core2mp13remove_list_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove all occurrences of the types in type list <strong>S</strong> from the type list <strong>L</strong></p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">remove_list_t</span><span class="o">&lt;</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">,</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">char</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="c1">// list&lt;&gt;</span>
+</pre></div>
+</div>
+</p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> – The list of types to remove. </p></li>
+<li><p><strong>L</strong> – The type list.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I0I00E0EN4core2mp6sort_tE">

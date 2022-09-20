@@ -42,9 +42,9 @@
               <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">Constructing Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">List Construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/query.html">Querying Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">Operating on Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">List Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/predicate.html">Predicates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/enableif.html">Enable If</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/utility.html">Untilities</a></li>
@@ -124,7 +124,7 @@
              
   <section id="intersect-h">
 <span id="include-core-mp-intersect-h"></span><h1>intersect.h<a class="headerlink" href="#intersect-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2018, 2019, 2020 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2018, 2019, 2020, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
@@ -162,11 +162,15 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">intersect</span><span class="o">&lt;</span><span class="n">partial</span><span class="p">,</span><span class="n">L3</span><span class="p">,</span><span class="n">Ls</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief Intersect the given lists</span>
-<span class="cm">   @tparam Ls... The lists to intersect</span>
-<span class="cm">   @returns The intersection of the the given lists</span>
-<span class="cm">*/</span>
+<span class="c1">/// Intersect the given type lists **Ls**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam Ls The type lists to intersect.</span>
+<span class="c1">///</span>
+<span class="c1">/// \verbatim embed:rst:leading-slashes</span>
+<span class="c1">/// ```{code-block} cpp</span>
+<span class="c1">/// intersect_t&lt;list&lt;int,char&gt;,list&lt;int&gt;&gt; // list&lt;int&gt;</span>
+<span class="c1">/// ```</span>
+<span class="c1">/// \endverbatim</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Ls</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">intersect_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">intersect</span><span class="o">&lt;</span><span class="n">Ls</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

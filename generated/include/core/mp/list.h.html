@@ -42,9 +42,9 @@
               <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">Constructing Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">List Construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/query.html">Querying Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">Operating on Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">List Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/predicate.html">Predicates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/enableif.html">Enable If</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/utility.html">Untilities</a></li>
@@ -136,11 +136,9 @@
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
 <span class="k">struct</span> <span class="n">list</span> <span class="p">{</span> <span class="p">};</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief Create a list from the given types.</span>
-<span class="cm">   @tparam Ts... The types to make a list from.</span>
-<span class="cm">   @returns A list with the types Ts...</span>
-<span class="cm"> */</span>
+<span class="c1">/// Create a type list of the types **Ts**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam Ts The types to put in the type list.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">list_t</span> <span class="o">=</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
 
@@ -159,12 +157,16 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief Rename a list.</span>
-<span class="cm">   @tparam L The list to rename (of the form T&lt;Ts...&gt;)</span>
-<span class="cm">   @tparam W The new list wrapper, i.e. a template template parameter</span>
-<span class="cm">   @returns The list W&lt;Ts...&gt;</span>
-<span class="cm"> */</span>
+<span class="c1">/// Rename the type list **L** with the variadic template name **N**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L The type list to rename.</span>
+<span class="c1">/// \tparam N The new variadic template name.</span>
+<span class="c1">///</span>
+<span class="c1">/// \verbatim embed:rst:leading-slashes</span>
+<span class="c1">/// ```{code-block} cpp</span>
+<span class="c1">/// rename_t&lt;list&lt;int,char&gt;,std::tuple&gt; // std::tuple&lt;int,char&gt;</span>
+<span class="c1">/// ```</span>
+<span class="c1">/// \endverbatim</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">L</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">N</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">rename_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">rename</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

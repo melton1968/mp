@@ -42,9 +42,9 @@
               <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">Constructing Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">List Construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/query.html">Querying Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">Operating on Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">List Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/predicate.html">Predicates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/enableif.html">Enable If</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/utility.html">Untilities</a></li>
@@ -124,7 +124,7 @@
              
   <section id="append-h">
 <span id="include-core-mp-append-h"></span><h1>append.h<a class="headerlink" href="#append-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#ifndef CORE_MP_APPEND_H</span>
@@ -159,11 +159,9 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="nb">true</span><span class="p">,</span><span class="n">L</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief Append to list</span>
-<span class="cm">   @tparam L... List elements</span>
-<span class="cm">   @returns</span>
-<span class="cm"> **/</span>
+<span class="c1">/// Concatenate the lists or list elements **L**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L The lists or list elements.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">append_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">append</span><span class="o">&lt;</span><span class="n">L</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

@@ -42,9 +42,9 @@
               <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">Constructing Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/construct.html">List Construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/query.html">Querying Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">Operating on Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/operate.html">List Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/predicate.html">Predicates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/enableif.html">Enable If</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/utility.html">Untilities</a></li>
@@ -124,7 +124,7 @@
              
   <section id="generate-h">
 <span id="include-core-mp-generate-h"></span><h1>generate.h<a class="headerlink" href="#generate-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#ifndef CORE_MP_GENERATE_H</span>
@@ -152,6 +152,16 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">make_index_sequence</span><span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
+<span class="c1">/// Generate a type list of type **T** repeated **N** times.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam T The type to duplicate.</span>
+<span class="c1">/// \tparam N The number of copies.</span>
+<span class="c1">///</span>
+<span class="c1">/// \verbatim embed:rst:leading-slashes</span>
+<span class="c1">/// ```{code-block} cpp</span>
+<span class="c1">/// generate_t&lt;int,3&gt; // list&lt;int,int,int&gt;</span>
+<span class="c1">/// ```</span>
+<span class="c1">/// \endverbatim</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">generate_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">generate</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 
