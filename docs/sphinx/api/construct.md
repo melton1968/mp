@@ -1,8 +1,8 @@
 
-# Constructing Lists
+# List Construction
 
-```{doxygentypedef} core::mp::append_t
-```
+The following type functions are used to construct or modify type
+lists.
 
 ```{doxygentypedef} core::mp::cat_t
 ```
@@ -19,5 +19,3 @@
 ```{doxygentypedef} core::mp::rename_t
 ```
 
-```{doxygentypedef} core::mp::remove_list_t
-```

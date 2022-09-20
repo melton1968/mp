@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019 by Mark Melton
+// Copyright (C) 2017, 2019, 2022 by Mark Melton
 //
 
 #pragma once
@@ -31,11 +31,15 @@ struct cat
     using type = typename impl<true,L...>::type;
 };
 
-/**
-   @brief Concatenate the given lists.
-   @tparam L... The lists
-   @returns The concatenated list
-*/
+/// Concatenate the given type lists **L**.
+///
+/// \tparam L The type lists.
+///
+/// \verbatim embed:rst:leading-slashes
+/// ```{code-block} cpp
+/// cat_t<list<int>,list<char>> // list<int,char>
+/// ```
+/// \endverbatim
 template<class... L>
 using cat_t = typename cat<L...>::type;
 

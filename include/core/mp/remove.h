@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019 by Mark Melton
+// Copyright (C) 2017, 2019, 2022 by Mark Melton
 //
 
 #ifndef CORE_MP_REMOVE_H
@@ -33,6 +33,16 @@ struct remove
     using type = typename impl<V,L>::type;
 };
 
+/// Remove all occurrences of type **V** from the type list **L**
+///
+/// \tparam V The type to remove.
+/// \tparam L The type list.
+///
+/// \verbatim embed:rst:leading-slashes
+/// ```{code-block} cpp
+/// remove_t<int,list<int,char,int>> // list<char>
+/// ```
+/// \endverbatim
 template<typename V, typename L>
 using remove_t = typename remove<V,L>::type;
 
@@ -58,6 +68,17 @@ struct remove_list
     using type = typename impl<S,L>::type;
 };
 
+/// Remove all occurrences of the types in type list **S** from the
+/// type list **L**
+///
+/// \tparam S The list of types to remove.
+/// \tparam L The type list.
+///
+/// \verbatim embed:rst:leading-slashes
+/// ```{code-block} cpp
+/// remove_list_t<list<int,char>,list<int,char,int>> // list<>
+/// ```
+/// \endverbatim
 template<typename S, typename L>
 using remove_list_t = typename remove_list<S,L>::type;
 

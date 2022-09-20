@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2018, 2019, 2020 by Mark Melton
+// Copyright (C) 2017, 2018, 2019, 2020, 2022 by Mark Melton
 //
 
 #pragma once
@@ -36,11 +36,15 @@ struct intersect<L1, L2, L3, Ls...>
     using type = typename intersect<partial,L3,Ls...>::type;
 };
 
-/**
-   @brief Intersect the given lists
-   @tparam Ls... The lists to intersect
-   @returns The intersection of the the given lists
-*/
+/// Intersect the given type lists **Ls**.
+///
+/// \tparam Ls The type lists to intersect.
+///
+/// \verbatim embed:rst:leading-slashes
+/// ```{code-block} cpp
+/// intersect_t<list<int,char>,list<int>> // list<int>
+/// ```
+/// \endverbatim
 template<class... Ls>
 using intersect_t = typename intersect<Ls...>::type;
 

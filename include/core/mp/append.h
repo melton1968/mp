@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019 by Mark Melton
+// Copyright (C) 2017, 2019, 2022 by Mark Melton
 //
 
 #ifndef CORE_MP_APPEND_H
@@ -33,11 +33,9 @@ struct append
     using type = typename impl<true,L...>::type;
 };
 
-/**
-   @brief Append to list
-   @tparam L... List elements
-   @returns 
- **/
+/// Concatenate the lists or list elements **L**.
+///
+/// \tparam L The lists or list elements.
 template<class... L>
 using append_t = typename append<L...>::type;
 

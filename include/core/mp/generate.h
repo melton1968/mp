@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019 by Mark Melton
+// Copyright (C) 2017, 2019, 2022 by Mark Melton
 //
 
 #ifndef CORE_MP_GENERATE_H
@@ -26,6 +26,16 @@ struct generate
     using type = typename impl<std::make_index_sequence<N>>::type;
 };
 
+/// Generate a type list of type **T** repeated **N** times.
+///
+/// \tparam T The type to duplicate.
+/// \tparam N The number of copies.
+///
+/// \verbatim embed:rst:leading-slashes
+/// ```{code-block} cpp
+/// generate_t<int,3> // list<int,int,int>
+/// ```
+/// \endverbatim
 template<typename T, size_t N>
 using generate_t = typename generate<T,N>::type;
 
