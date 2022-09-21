@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019 by Mark Melton
+// Copyright (C) 2017, 2019, 2022 by Mark Melton
 //
 
 #pragma once
@@ -36,6 +36,21 @@ struct sort
     using type = typename impl<L, 0, 1, size<L>::value>::type;
 };
 
+/// Sort the types in type list **L** according to the template
+/// template comparator **C**.
+///
+/// The comparator should be a template template parameter taking two
+/// types that evaluates to true if the first type compares less
+/// than the second type; otherwise, false.
+///
+/// \tparam L The type list to sort.
+/// \tparam C The template template comparator
+///
+/// \verbatim embed:rst:leading-slashes
+/// ```{code-block} cpp
+/// sort_t<list<mp_c,mp_b,mp_a>,integral_constant_less> // list<mp_a,mp_b,mp_c>
+/// ```
+/// \endverbatim
 template<typename L, template <typename, typename> typename C>
 using sort_t = typename sort<L,C>::type;
 

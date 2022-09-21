@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2018, 2019 by Mark Melton
+// Copyright (C) 2017, 2018, 2019, 2022 by Mark Melton
 //
 
 #ifndef CORE_MP_PERMUTATION_H
@@ -34,9 +34,20 @@ struct permutation
     using type = typename impl<0,size_v<T>>::type;
 };
 
+/// Compute the permutation vector that maps type list **S** to type
+/// list **T**.
+///
+/// \tparam S The initial type list.
+/// \tparam T The permuted type list.
+///
+/// \verbatim embed:rst:leading-slashes
+/// ```{code-block} cpp
+/// permutation_t<list<int,char>,list<char,int>> // list<mp_1s, mp_0s>
+/// ```
+/// \endverbatim
 template<typename S, typename T>
 using permutation_t = typename permutation<S,T>::type;
 
 }; // mp
-    
+
 #endif

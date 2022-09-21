@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2018, 2019 by Mark Melton
+// Copyright (C) 2017, 2018, 2019, 2022 by Mark Melton
 //
 
 #pragma once
@@ -28,6 +28,11 @@ struct subtract
     using type = mp::if_t<pred,concat,rtail>;
 };
 
+/// Removes all occurrences of the types in type list **L2** from type
+/// list **L1**.
+///
+/// \tparam L1 The type list to subtract from.
+/// \tparam L2 A type list of the types to remove from **L1**.
 template<typename L1, typename L2>
 using subtract_t = typename subtract<L1,L2,size_v<L1>>::type;
 

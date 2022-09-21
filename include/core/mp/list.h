@@ -63,11 +63,9 @@ struct head_x { using type = T; };
 template<typename L>
 using head = mp::rename_t<L, head_x>;
 
-/**
-   @brief Head of list
-   @tparam L The list
-   @returns The first type from the list
- */
+/// The first type in type list **L**.
+///
+/// \tparam L The type list.
 template<typename L>
 using head_t = typename head<L>::type;
 
@@ -77,11 +75,9 @@ struct second_x { using type = T2; };
 template<typename L>
 using second = rename_t<L, second_x>;
 
-/**
-   @brief Second element of list
-   @tparam L The list
-   @returns Ths second type from the list
- */
+/// The second type in type list **L**.
+///
+/// \tparam L The type list.
 template<typename L>
 using second_t = typename second<L>::type;
 
@@ -93,11 +89,9 @@ struct tail_x { using type = list<Ts...>; };
 template<typename L>
 using tail = rename_t<L, tail_x>;
 
-/**
-   @brief The remainder of the list
-   @tparam L The list
-   @returns The remainder of the list after removing head element
- */
+/// A type list containing all but the first type of type list **L**.
+///
+/// \tparam L The type list.
 template<typename L>
 using tail_t = typename tail<L>::type;
 

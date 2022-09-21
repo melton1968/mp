@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019 by Mark Melton
+// Copyright (C) 2017, 2019, 2022 by Mark Melton
 //
 
 #pragma once
@@ -31,11 +31,9 @@ struct unique
     using type = typename impl<L>::type;
 };
 
-/**
-   @brief Uniquify the given list
-   @tparam L The list
-   @returns The list with duplicates eliminated
-*/
+/// Uniquify type list **L**, i.e. remove any duplicate types.
+///
+/// \tparam L The type list to uniquify.
 template<class L>
 using unique_t = typename unique<L>::type;
 

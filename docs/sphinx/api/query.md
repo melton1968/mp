@@ -31,3 +31,10 @@
 ```{doxygenvariable} core::mp::is_same_template_v
 ```
 
+```{doxygentypedef} core::mp::second_t
+```
+
+```{doxygentypedef} core::mp::tail_t
+```
+
+
