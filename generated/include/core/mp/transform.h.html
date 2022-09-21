@@ -124,7 +124,7 @@
              
   <section id="transform-h">
 <span id="include-core-mp-transform-h"></span><h1>transform.h<a class="headerlink" href="#transform-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#ifndef CORE_MP_TRANSFORM_H</span>
@@ -150,6 +150,14 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
+<span class="c1">/// Apply the template template parameter **F** to each element of type</span>
+<span class="c1">/// list **L**.</span>
+<span class="c1">///</span>
+<span class="c1">/// The template template parameter **F** should be a template with a</span>
+<span class="c1">/// single type parameter that evaluates to the transformed type.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam F Template template parameter that computes transformation.</span>
+<span class="c1">/// \tparam L The type list to transform.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">F</span><span class="p">,</span> <span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">transform_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">transform</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

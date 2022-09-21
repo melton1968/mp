@@ -124,7 +124,7 @@
              
   <section id="unique-h">
 <span id="include-core-mp-unique-h"></span><h1>unique.h<a class="headerlink" href="#unique-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
@@ -157,11 +157,9 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief Uniquify the given list</span>
-<span class="cm">   @tparam L The list</span>
-<span class="cm">   @returns The list with duplicates eliminated</span>
-<span class="cm">*/</span>
+<span class="c1">/// Uniquify type list **L**, i.e. remove any duplicate types.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L The type list to uniquify.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">unique_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">unique</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

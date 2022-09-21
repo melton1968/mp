@@ -124,7 +124,7 @@
              
   <section id="permutation-h">
 <span id="include-core-mp-permutation-h"></span><h1>permutation.h<a class="headerlink" href="#permutation-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2018, 2019 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2018, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#ifndef CORE_MP_PERMUTATION_H</span>
@@ -160,6 +160,17 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="n">size_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
+<span class="c1">/// Compute the permutation vector that maps type list **S** to type</span>
+<span class="c1">/// list **T**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam S The initial type list.</span>
+<span class="c1">/// \tparam T The permuted type list.</span>
+<span class="c1">///</span>
+<span class="c1">/// \verbatim embed:rst:leading-slashes</span>
+<span class="c1">/// ```{code-block} cpp</span>
+<span class="c1">/// permutation_t&lt;list&lt;int,char&gt;,list&lt;char,int&gt;&gt; // list&lt;mp_1s, mp_0s&gt;</span>
+<span class="c1">/// ```</span>
+<span class="c1">/// \endverbatim</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">S</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">permutation_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">permutation</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

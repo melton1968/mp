@@ -7,7 +7,7 @@ transform.h
 
 .. code-block:: cpp
 
-    // Copyright (C) 2017, 2019 by Mark Melton
+    // Copyright (C) 2017, 2019, 2022 by Mark Melton
     //
     
     #ifndef CORE_MP_TRANSFORM_H
@@ -33,6 +33,14 @@ transform.h
         using type = typename impl<F,L>::type;
     };
     
+    /// Apply the template template parameter **F** to each element of type
+    /// list **L**.
+    ///
+    /// The template template parameter **F** should be a template with a
+    /// single type parameter that evaluates to the transformed type.
+    ///
+    /// \tparam F Template template parameter that computes transformation.
+    /// \tparam L The type list to transform.
     template<template<typename...> typename F, typename L>
     using transform_t = typename transform<F, L>::type;
     

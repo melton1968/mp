@@ -124,7 +124,7 @@
              
   <section id="subtract-h">
 <span id="include-core-mp-subtract-h"></span><h1>subtract.h<a class="headerlink" href="#subtract-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2018, 2019 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2018, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
@@ -154,6 +154,11 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">if_t</span><span class="o">&lt;</span><span class="n">pred</span><span class="p">,</span><span class="n">concat</span><span class="p">,</span><span class="n">rtail</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">};</span>
 
+<span class="c1">/// Removes all occurrences of the types in type list **L2** from type</span>
+<span class="c1">/// list **L1**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L1 The type list to subtract from.</span>
+<span class="c1">/// \tparam L2 A type list of the types to remove from **L1**.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">L2</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">subtract_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">subtract</span><span class="o">&lt;</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span><span class="n">size_v</span><span class="o">&lt;</span><span class="n">L1</span><span class="o">&gt;&gt;::</span><span class="n">type</span><span class="p">;</span>
 

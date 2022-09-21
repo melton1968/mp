@@ -189,11 +189,9 @@
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">head</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">head_x</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief Head of list</span>
-<span class="cm">   @tparam L The list</span>
-<span class="cm">   @returns The first type from the list</span>
-<span class="cm"> */</span>
+<span class="c1">/// The first type in type list **L**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L The type list.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">head_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">head</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 
@@ -203,11 +201,9 @@
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">second</span> <span class="o">=</span> <span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">second_x</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief Second element of list</span>
-<span class="cm">   @tparam L The list</span>
-<span class="cm">   @returns Ths second type from the list</span>
-<span class="cm"> */</span>
+<span class="c1">/// The second type in type list **L**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L The type list.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">second_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">second</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 
@@ -219,11 +215,9 @@
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">tail_x</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm">   @brief The remainder of the list</span>
-<span class="cm">   @tparam L The list</span>
-<span class="cm">   @returns The remainder of the list after removing head element</span>
-<span class="cm"> */</span>
+<span class="c1">/// A type list containing all but the first type of type list **L**.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L The type list.</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">tail_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">tail</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

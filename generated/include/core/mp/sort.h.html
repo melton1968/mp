@@ -124,7 +124,7 @@
              
   <section id="sort-h">
 <span id="include-core-mp-sort-h"></span><h1>sort.h<a class="headerlink" href="#sort-h" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019 by Mark Melton</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
@@ -162,6 +162,21 @@
     <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">value</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 <span class="p">};</span>
 
+<span class="c1">/// Sort the types in type list **L** according to the template</span>
+<span class="c1">/// template comparator **C**.</span>
+<span class="c1">///</span>
+<span class="c1">/// The comparator should be a template template parameter taking two</span>
+<span class="c1">/// types that evaluates to true if the first type compares less</span>
+<span class="c1">/// than the second type; otherwise, false.</span>
+<span class="c1">///</span>
+<span class="c1">/// \tparam L The type list to sort.</span>
+<span class="c1">/// \tparam C The template template comparator</span>
+<span class="c1">///</span>
+<span class="c1">/// \verbatim embed:rst:leading-slashes</span>
+<span class="c1">/// ```{code-block} cpp</span>
+<span class="c1">/// sort_t&lt;list&lt;mp_c,mp_b,mp_a&gt;,integral_constant_less&gt; // list&lt;mp_a,mp_b,mp_c&gt;</span>
+<span class="c1">/// ```</span>
+<span class="c1">/// \endverbatim</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="p">,</span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">,</span> <span class="k">typename</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">C</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">sort_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">sort</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="n">C</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
 

@@ -102,7 +102,21 @@ ways.</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I00EN4core2mp13permutation_tE">
 <span id="_CPPv3I00EN4core2mp13permutation_tE"></span><span id="_CPPv2I00EN4core2mp13permutation_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">S</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="permutation_8h_1a8fdea6e6679604882c1636b61a903781"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">permutation_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">permutation</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN4core2mp13permutation_tE" title="core::mp::permutation_t::S"><span class="n"><span class="pre">S</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00EN4core2mp13permutation_tE" title="core::mp::permutation_t::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I00EN4core2mp13permutation_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compute the permutation vector that maps type list <strong>S</strong> to type list <strong>T</strong>.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">permutation_t</span><span class="o">&lt;</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">,</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="c1">// list&lt;mp_1s, mp_0s&gt;</span>
+</pre></div>
+</div>
+</p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> – The initial type list. </p></li>
+<li><p><strong>T</strong> – The permuted type list.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I00EN4core2mp8remove_tE">
@@ -145,33 +159,86 @@ ways.</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I0I00E0EN4core2mp6sort_tE">
 <span id="_CPPv3I0I00E0EN4core2mp6sort_tE"></span><span id="_CPPv2I0I00E0EN4core2mp6sort_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">C</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="sort_8h_1a164f9e535452936c6e7c0974a3b45a8b"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">sort_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0I00E0EN4core2mp6sort_tE" title="core::mp::sort_t::L"><span class="n"><span class="pre">L</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0I00E0EN4core2mp6sort_tE" title="core::mp::sort_t::C"><span class="n"><span class="pre">C</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I0I00E0EN4core2mp6sort_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Sort the types in type list <strong>L</strong> according to the template template comparator <strong>C</strong>.</p>
+<p>The comparator should be a template template parameter taking two types that evaluates to true if the first type compares less than the second type; otherwise, false.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sort_t</span><span class="o">&lt;</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_c</span><span class="p">,</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_a</span><span class="o">&gt;</span><span class="p">,</span><span class="n">integral_constant_less</span><span class="o">&gt;</span> <span class="c1">// list&lt;mp_a,mp_b,mp_c&gt;</span>
+</pre></div>
+</div>
+</p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> – The type list to sort. </p></li>
+<li><p><strong>C</strong> – The template template comparator</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I00EN4core2mp10subtract_tE">
 <span id="_CPPv3I00EN4core2mp10subtract_tE"></span><span id="_CPPv2I00EN4core2mp10subtract_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L1</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L2</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="subtract_8h_1a807c9072e648b93a6eecaa2d2e4debe3"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">subtract_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">subtract</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN4core2mp10subtract_tE" title="core::mp::subtract_t::L1"><span class="n"><span class="pre">L1</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00EN4core2mp10subtract_tE" title="core::mp::subtract_t::L2"><span class="n"><span class="pre">L2</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_v</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN4core2mp10subtract_tE" title="core::mp::subtract_t::L1"><span class="n"><span class="pre">L1</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I00EN4core2mp10subtract_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Removes all occurrences of the types in type list <strong>L2</strong> from type list <strong>L1</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L1</strong> – The type list to subtract from. </p></li>
+<li><p><strong>L2</strong> – A type list of the types to remove from <strong>L1</strong>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I_6size_t_6size_t0EN4core2mp6swap_tE">
 <span id="_CPPv3I_6size_t_6size_t0EN4core2mp6swap_tE"></span><span id="_CPPv2I_6size_t_6size_t0EN4core2mp6swap_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">I</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">J</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="swap_8h_1a662dec4198bd4a5aedae7a2b30464e18"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">swap_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">swap</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I_6size_t_6size_t0EN4core2mp6swap_tE" title="core::mp::swap_t::I"><span class="n"><span class="pre">I</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_t_6size_t0EN4core2mp6swap_tE" title="core::mp::swap_t::J"><span class="n"><span class="pre">J</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_t_6size_t0EN4core2mp6swap_tE" title="core::mp::swap_t::L"><span class="n"><span class="pre">L</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I_6size_t_6size_t0EN4core2mp6swap_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Swap entries at indices <strong>I</strong> and <strong>J</strong> in type list <strong>L</strong>.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">swap_t</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_a</span><span class="p">,</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_c</span><span class="p">,</span><span class="n">mp_d</span><span class="o">&gt;&gt;</span> <span class="c1">// list&lt;mp_a,mp_d,mp_c,mp_b&gt;</span>
+</pre></div>
+</div>
+</p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>I</strong> – The first index. </p></li>
+<li><p><strong>J</strong> – The second index.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4IIDpE00EN4core2mp11transform_tE">
 <span id="_CPPv3IIDpE00EN4core2mp11transform_tE"></span><span id="_CPPv2IIDpE00EN4core2mp11transform_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="transform_8h_1ae14ccf2a3c3b57e26bb7153de74c098b"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">transform_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">transform</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4IIDpE00EN4core2mp11transform_tE" title="core::mp::transform_t::F"><span class="n"><span class="pre">F</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4IIDpE00EN4core2mp11transform_tE" title="core::mp::transform_t::L"><span class="n"><span class="pre">L</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4IIDpE00EN4core2mp11transform_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Apply the template template parameter <strong>F</strong> to each element of type list <strong>L</strong>.</p>
+<p>The template template parameter <strong>F</strong> should be a template with a single type parameter that evaluates to the transformed type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>F</strong> – Template template parameter that computes transformation. </p></li>
+<li><p><strong>L</strong> – The type list to transform. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4IDpEN4core2mp7union_tE">
 <span id="_CPPv3IDpEN4core2mp7union_tE"></span><span id="_CPPv2IDpEN4core2mp7union_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">Ls</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="union_8h_1ac7fb785241768e42a96c100a382e5bfa"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">union_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN4core2mp8unique_tE" title="core::mp::unique_t"><span class="n"><span class="pre">unique_t</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="construct.html#_CPPv4IDpEN4core2mp5cat_tE" title="core::mp::cat_t"><span class="n"><span class="pre">cat_t</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4IDpEN4core2mp7union_tE" title="core::mp::union_t::Ls"><span class="n"><span class="pre">Ls</span></span></a><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4IDpEN4core2mp7union_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Union of the given lists. </p>
+<p>
+This is a proper mathematical set union in that there are no duplicate members in the resulting type list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Ls...</strong> – The lists to combine </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Ls...</strong> – The lists to combine </p></li>
+<li><p><strong>Ls</strong> – The type lists to union. </p></li>
+</ul>
 </dd>
 <dt class="field-even">Return<span class="colon">:</span></dt>
-<dd class="field-even"><p>The union of the given lists </p>
+<dd class="field-even"><p>The union of the given lists Compute the union of the given type lists <strong>Ls</strong>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -179,13 +246,10 @@ ways.</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN4core2mp8unique_tE">
 <span id="_CPPv3I0EN4core2mp8unique_tE"></span><span id="_CPPv2I0EN4core2mp8unique_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">L</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="unique_8h_1a80a9314ecaaeb4c06310eb25ac15bdae"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">core</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">unique_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN4core2mp8unique_tE" title="core::mp::unique_t::L"><span class="n"><span class="pre">L</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I0EN4core2mp8unique_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Uniquify the given list. </p>
+<dd><p>Uniquify type list <strong>L</strong>, i.e. remove any duplicate types.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>L</strong> – The list </p>
-</dd>
-<dt class="field-even">Return<span class="colon">:</span></dt>
-<dd class="field-even"><p>The list with duplicates eliminated </p>
+<dd class="field-odd"><p><strong>L</strong> – The type list to uniquify. </p>
 </dd>
 </dl>
 </dd></dl>
