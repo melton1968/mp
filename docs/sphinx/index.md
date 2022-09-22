@@ -52,6 +52,10 @@ libraries. The *cxx-core* libraries have two primary goals:
   provide support for a broad range of libraries that feel like part
   of the language.
 
+# License
+
+This software is licensed under the BSD 3-clause license. See the LICENSE file for details.
+
 # Appendix
 
 ```{toctree}
