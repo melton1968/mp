@@ -1,14 +1,14 @@
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
-project (cxx-core-mp VERSION 0.1 LANGUAGES C CXX)
+project (mp VERSION 0.1 LANGUAGES C CXX)
 
 # Make including this file idempotent
 #
-if(TARGET cxx_core_mp_docs)
+if(TARGET mp_docs)
   return()
 endif()
 
-set(TARGET_BASE cxx_core_mp_docs)
-set(PROJECT_BASE cxx-core-mp-docs)
+set(TARGET_BASE mp_docs)
+set(PROJECT_BASE mp-docs)
 
 find_package(Doxygen REQUIRED)
 

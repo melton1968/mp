@@ -1,9 +1,9 @@
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
-project (cxx_core_mp VERSION 0.1 LANGUAGES C CXX)
+project (mp VERSION 0.1 LANGUAGES C CXX)
 
 # Make including this file idempotent
 #
-if(TARGET cxx_core_mp)
+if(TARGET mp)
   return()
 endif()
 
@@ -12,7 +12,7 @@ endif()
 # Build the tests and set directories if this is the master project
 #
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
-  set(CORE_MP_TEST ON CACHE BOOL "Generate the tests.")
+  set(MP_TEST ON CACHE BOOL "Generate the tests.")
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
   set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
   set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -24,23 +24,23 @@ endif()
 
 # Options for generating tests and documentation.
 #
-option(CORE_MP_TEST "Generate the tests." OFF)
-option(CORE_MP_DOCS "Generate the docs." OFF)
+option(MP_TEST "Generate the tests." OFF)
+option(MP_DOCS "Generate the docs." OFF)
 
 # Add our dependencies
 #
 include(GNUInstallDirs)
 find_package(fmt REQUIRED)
-find_package(cxx_core_pp REQUIRED)
+find_package(pp REQUIRED)
 
 # Output configuration
 #
-message("-- cxx-core-mp: Configuration: ${CMAKE_CURRENT_SOURCE_DIR}")
-message("-- cxx-core-mp: Included from: ${CMAKE_SOURCE_DIR}")
-message("-- cxx-core-mp: CORE_MP_TEST ${CORE_MP_TEST}")
-message("-- cxx-core-mp: CORE_MP_DOCS ${CORE_MP_DOCS}")
-message("-- cxx-core-mp: DEPENDS_BUILD_DIR ${DEPENDS_BUILD_DIR}")
-message("-- cxx-core-mp: DEPENDS_INSTALL_DIR ${DEPENDS_INSTALL_DIR}")
+message("-- mp: Configuration: ${CMAKE_CURRENT_SOURCE_DIR}")
+message("-- mp: Included from: ${CMAKE_SOURCE_DIR}")
+message("-- mp: MP_TEST ${MP_TEST}")
+message("-- mp: MP_DOCS ${MP_DOCS}")
+message("-- mp: DEPENDS_BUILD_DIR ${DEPENDS_BUILD_DIR}")
+message("-- mp: DEPENDS_INSTALL_DIR ${DEPENDS_INSTALL_DIR}")
 
 # Compilation
 #
@@ -53,14 +53,14 @@ add_compile_options(-stdlib=libc++)
 add_compile_options(-O)
 add_link_options(-stdlib=libc++)
 
-add_library(cxx_core_mp INTERFACE)
-target_include_directories(cxx_core_mp INTERFACE
+add_library(mp INTERFACE)
+target_include_directories(mp INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 # Optionally configure the tests
 #
-if(CORE_MP_TEST)
+if(MP_TEST)
   enable_testing()
   if (NOT TARGET check)
     add_custom_target(check ${CMAKE_CTEST_COMMAND})
@@ -71,7 +71,7 @@ endif()
 
 # Optionally configure the documentation
 #
-if(CORE_MP_DOCS)
+if(MP_DOCS)
   add_subdirectory(docs)
 endif()
 
@@ -83,5 +83,5 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core
 # Install config
 #
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install_config.cmake)
-install_config(cxx_core_mp)
+install_config(mp)
 
