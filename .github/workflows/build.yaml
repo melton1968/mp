@@ -16,41 +16,33 @@ jobs:
     - name: Requirements
       run: sudo apt-get install -y clang-11 libc++-11-dev libc++abi-11-dev
       
-    - name: SSH Agent
-      uses: webfactory/ssh-agent@v0.5.4
-      with:
-        ssh-private-key: |
-          ${{ secrets.CXX_DEPENDS }}
-          ${{ secrets.CXX_CORE_PP }}
-          ${{ secrets.CXX_CORE_MP }}
-        
-    - name: Checkout cxx-core-mp
+    - name: Checkout mp
       uses: actions/checkout@v2
       with:
-        repository: melton1968/cxx-core-mp
-        path: cxx-core-mp
+        repository: cpp-core/mp
+        path: mp
         
-    - name: Checkout cxx-depends
+    - name: Checkout depends
       uses: actions/checkout@v2
       with:
-        repository: melton1968/cxx-depends
+        repository: cpp-core/depends
         ref: main
-        path: cxx-depends
+        path: depends
         
     - name: Build dependencies
       run: |
         export CC=clang-11
         export CXX=clang++-11
-        mkdir -p cxx-depends/build && pushd cxx-depends/build
-        cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/opt -DCORE_TEST=ON ..
-        make cxx_core_mp-depends
+        mkdir -p depends/build && pushd depends/build
+        cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/opt -DALL_TEST=ON ..
+        make mp-depends
         popd
 
     - name: Build and run the tests
       run: |
         export CC=clang-11
         export CXX=clang++-11
-        mkdir -p cxx-core-mp/build && pushd cxx-core-mp/build
+        mkdir -p mp/build && pushd mp/build
         cmake -DCMAKE_INSTALL_PREFIX=${GITHUB_WORKSPACE}/opt ..
         make
         make check
