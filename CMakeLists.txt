@@ -36,8 +36,25 @@ option(MP_DOCS "Generate the docs." OFF)
 # Add our dependencies
 #
 include(GNUInstallDirs)
-find_package(fmt REQUIRED)
-find_package(pp REQUIRED)
+include(cmake/cpp_core_find_package.cmake)
+
+include(FetchContent)
+
+FetchContent_Declare(
+  pp
+  GIT_REPOSITORY /Users/mmelton/work/cpp-core/pp/.git
+  GIT_TAG main
+  GIT_SHALLOW TRUE
+  FIND_PACKAGE_ARGS
+  )
+FetchContent_MakeAvailable(pp)
+
+cpp_core_find_package(fmt VERSION 9.1.0)
+cpp_core_find_package_local(pp file::/Users/mmelton/work/cpp-core/pp)
+
+if (NOT TARGET pp::pp)
+  message(FATAL_ERROR "-- mp: pp:pp not found")
+endif()
 
 # Output configuration
 #
@@ -47,6 +64,7 @@ message("-- mp: MP_TEST ${MP_TEST}")
 message("-- mp: MP_DOCS ${MP_DOCS}")
 message("-- mp: DEPENDS_BUILD_DIR ${DEPENDS_BUILD_DIR}")
 message("-- mp: DEPENDS_INSTALL_DIR ${DEPENDS_INSTALL_DIR}")
+message("-- mp: pp ${pp_POPULATED}")
 
 # Compilation
 #
@@ -60,6 +78,9 @@ add_compile_options(-O)
 add_link_options(-stdlib=libc++)
 
 add_library(mp INTERFACE)
+
+target_link_libraries(mp INTERFACE fmt::fmt)
+
 target_include_directories(mp INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
@@ -89,5 +110,4 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core
 # Install config
 #
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install_config.cmake)
-install_config(mp)
-
+install_config(mp DEPENDS fmt)
