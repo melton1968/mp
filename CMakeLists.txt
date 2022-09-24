@@ -38,19 +38,8 @@ option(MP_DOCS "Generate the docs." OFF)
 include(GNUInstallDirs)
 include(cmake/cpp_core_find_package.cmake)
 
-include(FetchContent)
-
-FetchContent_Declare(
-  pp
-  GIT_REPOSITORY /Users/mmelton/work/cpp-core/pp/.git
-  GIT_TAG main
-  GIT_SHALLOW TRUE
-  FIND_PACKAGE_ARGS
-  )
-FetchContent_MakeAvailable(pp)
-
 cpp_core_find_package(fmt VERSION 9.1.0)
-cpp_core_find_package_local(pp file::/Users/mmelton/work/cpp-core/pp)
+cpp_core_find_package_local(pp /Users/mmelton/work/cpp-core/pp)
 
 if (NOT TARGET pp::pp)
   message(FATAL_ERROR "-- mp: pp:pp not found")
