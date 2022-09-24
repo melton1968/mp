@@ -78,6 +78,7 @@ add_compile_options(-O)
 add_link_options(-stdlib=libc++)
 
 add_library(mp INTERFACE)
+add_library(mp::mp ALIAS mp) # Allow interop for FetchContent and FindPackage.
 
 target_link_libraries(mp INTERFACE fmt::fmt)
 
