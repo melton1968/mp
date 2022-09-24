@@ -69,7 +69,7 @@ add_link_options(-stdlib=libc++)
 add_library(mp INTERFACE)
 add_library(mp::mp ALIAS mp) # Allow interop for FetchContent and FindPackage.
 
-target_link_libraries(mp INTERFACE fmt::fmt)
+target_link_libraries(mp INTERFACE fmt::fmt pp::pp)
 
 target_include_directories(mp INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -100,4 +100,4 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core
 # Install config
 #
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install_config.cmake)
-install_config(mp DEPENDS fmt)
+install_config(mp DEPENDS fmt pp)
