@@ -39,11 +39,7 @@ include(GNUInstallDirs)
 include(cmake/cpp_core_find_package.cmake)
 
 cpp_core_find_package(fmt VERSION 9.1.0)
-cpp_core_find_package_local(pp /Users/mmelton/work/cpp-core/pp)
-
-if (NOT TARGET pp::pp)
-  message(FATAL_ERROR "-- mp: pp:pp not found")
-endif()
+cpp_core_find_package(pp)
 
 # Output configuration
 #
@@ -53,7 +49,6 @@ message("-- mp: MP_TEST ${MP_TEST}")
 message("-- mp: MP_DOCS ${MP_DOCS}")
 message("-- mp: DEPENDS_BUILD_DIR ${DEPENDS_BUILD_DIR}")
 message("-- mp: DEPENDS_INSTALL_DIR ${DEPENDS_INSTALL_DIR}")
-message("-- mp: pp ${pp_POPULATED}")
 
 # Compilation
 #
@@ -67,7 +62,7 @@ add_compile_options(-O)
 add_link_options(-stdlib=libc++)
 
 add_library(mp INTERFACE)
-add_library(mp::mp ALIAS mp) # Allow interop for FetchContent and FindPackage.
+add_library(mp::mp ALIAS mp) # Allow interop between FetchContent and FindPackage.
 
 target_link_libraries(mp INTERFACE fmt::fmt pp::pp)
 
@@ -100,4 +95,4 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core
 # Install config
 #
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install_config.cmake)
-install_config(mp DEPENDS fmt pp)
+install_config(mp DEPENDS fmt)

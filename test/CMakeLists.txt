@@ -39,11 +39,8 @@ set(TESTS
   mp/unique
   )
 
-
 set(LIBRARIES
   mp
-  pp::pp
-  fmt::fmt
   GTest::gtest
   Threads::Threads
   )
