@@ -3,7 +3,7 @@ project (mp VERSION 0.1 LANGUAGES C CXX)
 
 # Make including this file idempotent
 #
-if(TARGET mp)
+if(TARGET mp OR TARGET mp::mp)
   return()
 endif()
 
