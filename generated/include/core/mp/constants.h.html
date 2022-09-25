@@ -16,6 +16,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -128,11 +129,11 @@
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
-<span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/pp/map.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/pp/map.h&quot;</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">core</span><span class="o">::</span><span class="n">mp</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">core</span><span class="o">::</span><span class="nn">mp</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
 <span class="c1">// integral constants</span>
 <span class="c1">//</span>
@@ -141,19 +142,19 @@
 <span class="cm">   @brief Type alias for creating integral constants of type `bool`</span>
 <span class="cm">   @tparam B non-type parameter of type `bool`</span>
 <span class="cm">   @returns The bool integral constant for the value of B</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">B</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">_bool</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">B</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">_bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief The false integral constant.</span>
-<span class="cm">*/</span>
-<span class="k">using</span> <span class="n">_false</span> <span class="o">=</span> <span class="n">_bool</span><span class="o">&lt;</span><span class="nb">false</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">_false</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_bool</span><span class="o">&lt;</span><span class="nb">false</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief The true integral constant.</span>
-<span class="cm">*/</span>
-<span class="k">using</span> <span class="n">_true</span> <span class="o">=</span> <span class="n">_bool</span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">_true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_bool</span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// size_t, natural, integer, char</span>
 <span class="c1">//</span>
@@ -161,57 +162,57 @@
 <span class="cm">   @brief Type alias for creating integral constants of type `size_t`</span>
 <span class="cm">   @tparam N non-type parameter of type `size_t`</span>
 <span class="cm">   @returns The `size_t` integral constant for the given value of N</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">_size_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">_size_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief Type alias for creating integral constants of type `uint`</span>
 <span class="cm">   @tparam N non-type parameter of type `uint`</span>
 <span class="cm">   @returns The `uint` integral constant for the given value of N</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">_natural</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">uint</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">_natural</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">uint</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief Type alias for creating integral constants of type `int`</span>
 <span class="cm">   @tparam N non-type parameter of type `int`</span>
 <span class="cm">   @returns The `int` integral constant for the given value of N</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">_integer</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">_integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief Type alias for creating integral constants of type `char`</span>
 <span class="cm">   @tparam C non-type parameter of type `char`</span>
 <span class="cm">   @returns The `char` integral constant for the given value of C</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span> <span class="n">C</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">_char</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="n">C</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span><span class="w"> </span><span class="n">C</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">_char</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="n">C</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// matching</span>
 <span class="c1">//</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">is_integral_constant</span>
-<span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">_false</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_integral_constant</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_false</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span><span class="n">T</span> <span class="n">V</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">is_integral_constant</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;&gt;</span>
-<span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">_true</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="n">T</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">is_integral_constant</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;&gt;</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_true</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">is_integral_constant_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">is_integral_constant</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">is_integral_constant_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">is_integral_constant</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_integral_constant_v</span> <span class="o">=</span> <span class="n">is_integral_constant_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_integral_constant_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">is_integral_constant_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// comparision</span>
 <span class="c1">//</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">integral_constant_less</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">U</span><span class="o">::</span><span class="n">value</span><span class="p">),</span><span class="n">_true</span><span class="p">,</span><span class="n">_false</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">integral_constant_less</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="o">::</span><span class="n">value</span><span class="p">),</span><span class="n">_true</span><span class="p">,</span><span class="n">_false</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">integral_constant_more</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">U</span><span class="o">::</span><span class="n">value</span><span class="p">),</span><span class="n">_true</span><span class="p">,</span><span class="n">_false</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">integral_constant_more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="o">::</span><span class="n">value</span><span class="p">),</span><span class="n">_true</span><span class="p">,</span><span class="n">_false</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// pre-named natural, integer, char constants</span>
 <span class="c1">//</span>
@@ -220,34 +221,34 @@
 <span class="cp">    using _ ## N ##s = _size_t&lt;N&gt;;  \</span>
 <span class="cp">    using _ ## N ##u = _natural&lt;N&gt;; \</span>
 <span class="cp">    using _ ## N = _integer&lt;N&gt;;</span>
-<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_INTEGRAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>
-                 <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_INTEGRAL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
 <span class="cp">#undef MP_INTEGRAL</span>
 
 <span class="cp">#define Q(X) ((#X)[0])</span>
 <span class="cp">#define MP_CHAR(C) using _ ## C = _char&lt;Q(C)&gt;;</span>
-<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_CHAR</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
-                 <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">_</span><span class="p">);</span>
+<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_CHAR</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">);</span><span class="w"></span>
 <span class="cp">#undef MP_CHAR</span>
 <span class="cp">#undef Q</span>
 
-<span class="p">};</span> <span class="c1">// namespace</span>
+<span class="p">};</span><span class="w"> </span><span class="c1">// namespace</span>
 
-<span class="k">using</span> <span class="n">mp_false</span> <span class="o">=</span> <span class="n">core</span><span class="o">::</span><span class="n">mp</span><span class="o">::</span><span class="n">_false</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">mp_true</span> <span class="o">=</span> <span class="n">core</span><span class="o">::</span><span class="n">mp</span><span class="o">::</span><span class="n">_true</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">mp_false</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">mp</span><span class="o">::</span><span class="n">_false</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">mp_true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">mp</span><span class="o">::</span><span class="n">_true</span><span class="p">;</span><span class="w"></span>
 
 <span class="cp">#define MP_INTEGRAL(N)                                \</span>
 <span class="cp">    using mp_ ## N ##s = core::mp::_ ## N ##s;        \</span>
 <span class="cp">    using mp_ ## N ##u = core::mp::_ ## N ##u;        \</span>
 <span class="cp">    using mp_ ## N = core::mp::_ ## N;</span>
-<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_INTEGRAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>
-                 <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_INTEGRAL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
 <span class="cp">#undef MP_INTEGRAL</span>
 
 <span class="cp">#define Q(X) ((#X)[0])</span>
 <span class="cp">#define MP_CHAR(C) using mp_ ## C = core::mp::_ ## C;</span>
-<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_CHAR</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>
-                 <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">_</span><span class="p">);</span>
+<span class="n">CORE_PP_EVAL_MAP</span><span class="p">(</span><span class="n">MP_CHAR</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">);</span><span class="w"></span>
 <span class="cp">#undef MP_CHAR</span>
 <span class="cp">#undef Q</span>
 </pre></div>

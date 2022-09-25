@@ -16,6 +16,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -128,38 +129,38 @@
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/list.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/at.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/make_index_range.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/list.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/at.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/make_index_range.h&quot;</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">core</span><span class="o">::</span><span class="n">mp</span>
-<span class="p">{</span>
-<span class="k">namespace</span> <span class="n">impl</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">core</span><span class="o">::</span><span class="nn">mp</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">impl</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">nth_element</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">nth_element</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span> <span class="n">Us</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">nth_element</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="n">Us</span><span class="p">...</span><span class="o">&gt;&gt;</span>
-<span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span>
-    <span class="k">static</span> <span class="k">auto</span> <span class="n">apply</span><span class="p">(</span><span class="n">at_ct</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">,</span><span class="n">L</span><span class="o">&gt;</span><span class="p">...,</span> <span class="n">S</span><span class="o">&amp;&amp;</span> <span class="n">value</span><span class="p">,</span> <span class="n">at_ct</span><span class="o">&lt;</span><span class="n">Us</span><span class="p">,</span><span class="n">L</span><span class="o">&gt;</span><span class="p">...)</span>
-    <span class="p">{</span> <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">);</span> <span class="p">}</span>
-<span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">Us</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">nth_element</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="n">Us</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">S</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">apply</span><span class="p">(</span><span class="n">at_ct</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">,</span><span class="n">L</span><span class="o">&gt;</span><span class="p">...,</span><span class="w"> </span><span class="n">S</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">at_ct</span><span class="o">&lt;</span><span class="n">Us</span><span class="p">,</span><span class="n">L</span><span class="o">&gt;</span><span class="p">...)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="p">};</span> <span class="c1">// impl</span>
+<span class="p">};</span><span class="w"> </span><span class="c1">// impl</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">N</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="n">nth</span><span class="p">(</span><span class="n">Ts</span><span class="p">...</span> <span class="n">values</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">using</span> <span class="n">List</span> <span class="o">=</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">PreSeq</span> <span class="o">=</span> <span class="n">make_index_range_ct</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">PostSeq</span> <span class="o">=</span> <span class="n">make_index_range_ct</span><span class="o">&lt;</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Ts</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">impl</span><span class="o">::</span><span class="n">nth_element</span><span class="o">&lt;</span><span class="n">List</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">PreSeq</span><span class="p">,</span> <span class="n">PostSeq</span><span class="o">&gt;::</span><span class="n">apply</span><span class="p">(</span><span class="n">values</span><span class="p">...);</span>
-<span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">nth</span><span class="p">(</span><span class="n">Ts</span><span class="p">...</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">PreSeq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_index_range_ct</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">PostSeq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_index_range_ct</span><span class="o">&lt;</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Ts</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">impl</span><span class="o">::</span><span class="n">nth_element</span><span class="o">&lt;</span><span class="n">List</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">PreSeq</span><span class="p">,</span><span class="w"> </span><span class="n">PostSeq</span><span class="o">&gt;::</span><span class="n">apply</span><span class="p">(</span><span class="n">values</span><span class="p">...);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="p">};</span> <span class="c1">// mp</span>
+<span class="p">};</span><span class="w"> </span><span class="c1">// mp</span>
 </pre></div>
 </div>
 </section>

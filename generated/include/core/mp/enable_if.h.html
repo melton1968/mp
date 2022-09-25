@@ -16,6 +16,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -128,51 +129,51 @@
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/list.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/list.h&quot;</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">core</span><span class="o">::</span><span class="n">mp</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">core</span><span class="o">::</span><span class="nn">mp</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
 <span class="c1">/// Evaluates to true iff all types **Ts..** are the same as type **T**; otherwise, false.</span>
 <span class="c1">///</span>
 <span class="c1">/// \tparam T The type to compare against.</span>
 <span class="c1">/// \tparam Ts Compare each of these types against T.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">enable_if_all_v</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">conjunction_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">enable_if_all_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">conjunction_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">    Evaluate to void iff all types Ts... are the same as T; otherwise, fail.</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">enable_if_all_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">enable_if_all_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">enable_if_all_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">enable_if_all_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">/// Evaluates to true iff any types **Ts..** are the same as type **T**; otherwise, false.</span>
 <span class="c1">///</span>
 <span class="c1">/// \tparam T The type to compare against.</span>
 <span class="c1">/// \tparam Ts Compare each of these types against T.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">enable_if_any_v</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">disjunction_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">enable_if_any_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">disjunction_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">    Evaluate to void type iff any types Ts... are the same as type T; otherwise, fail.</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">enable_if_any_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">enable_if_any_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">enable_if_any_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">enable_if_any_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">/// Evaluates to true iff no types **Ts..** are the same as type **T**; otherwise, false.</span>
 <span class="c1">///</span>
 <span class="c1">/// \tparam T The type to compare against.</span>
 <span class="c1">/// \tparam Ts Compare each of these types against T.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">enable_if_none_v</span> <span class="o">=</span> <span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">disjunction_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">enable_if_none_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">disjunction_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">    Evaluate to void type iff no types Ts... are the same as type T; otherwise, fail.</span>
-<span class="cm">*/</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">enable_if_none_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">enable_if_none_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">enable_if_none_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">enable_if_none_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"></span>
 
-<span class="p">};</span> <span class="c1">// core::mp</span>
+<span class="p">};</span><span class="w"> </span><span class="c1">// core::mp</span>
 </pre></div>
 </div>
 </section>

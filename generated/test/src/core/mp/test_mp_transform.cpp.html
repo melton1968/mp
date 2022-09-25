@@ -16,6 +16,7 @@
         <script src="../../../../../_static/underscore.js"></script>
         <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -97,46 +98,46 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2017, 2019, 2022 by Mark Melton</span>
 <span class="c1">//</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/transform.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/constants.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/transform.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/constants.h&quot;</span><span class="cp"></span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">core</span><span class="p">;</span>
-<span class="k">using</span> <span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">StaticAssertTypeEq</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">core</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">StaticAssertTypeEq</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">add_pointer</span> <span class="o">=</span> <span class="n">T</span><span class="o">*</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">add_pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">add_one</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="n">T</span><span class="o">::</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">add_one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="n">T</span><span class="o">::</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">TEST</span><span class="p">(</span><span class="n">MP</span><span class="p">,</span> <span class="n">Transform</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="p">{</span>
-        <span class="k">using</span> <span class="n">L</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">;</span>
-        <span class="k">using</span> <span class="n">A</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">;</span>
-        <span class="k">using</span> <span class="n">R</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">transform_t</span><span class="o">&lt;</span><span class="n">add_pointer</span><span class="p">,</span> <span class="n">L</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="n">StaticAssertTypeEq</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="k">using</span> <span class="n">L</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">void</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="k">using</span> <span class="n">A</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="kt">float</span><span class="o">*&gt;</span><span class="p">;</span>
-        <span class="k">using</span> <span class="n">R</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">transform_t</span><span class="o">&lt;</span><span class="n">add_pointer</span><span class="p">,</span> <span class="n">L</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="n">StaticAssertTypeEq</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="k">using</span> <span class="n">L</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_a</span><span class="p">,</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_c</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="k">using</span> <span class="n">A</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_c</span><span class="p">,</span><span class="n">mp_d</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="k">using</span> <span class="n">R</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">transform_t</span><span class="o">&lt;</span><span class="n">add_one</span><span class="p">,</span> <span class="n">L</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="n">StaticAssertTypeEq</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="n">TEST</span><span class="p">(</span><span class="n">MP</span><span class="p">,</span><span class="w"> </span><span class="n">Transform</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">transform_t</span><span class="o">&lt;</span><span class="n">add_pointer</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">StaticAssertTypeEq</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">*&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">transform_t</span><span class="o">&lt;</span><span class="n">add_pointer</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">StaticAssertTypeEq</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_a</span><span class="p">,</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_c</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_c</span><span class="p">,</span><span class="n">mp_d</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">transform_t</span><span class="o">&lt;</span><span class="n">add_one</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">StaticAssertTypeEq</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">InitGoogleTest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nf">RUN_ALL_TESTS</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">InitGoogleTest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RUN_ALL_TESTS</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

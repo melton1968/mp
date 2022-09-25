@@ -16,6 +16,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -128,34 +129,34 @@
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
-<span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">core</span><span class="o">::</span><span class="n">mp</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">core</span><span class="o">::</span><span class="nn">mp</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">list</span> <span class="p">{</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">list</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
 <span class="c1">/// Create a type list of the types **Ts**.</span>
 <span class="c1">///</span>
 <span class="c1">/// \tparam Ts The types to put in the type list.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">list_t</span> <span class="o">=</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">list_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// rename</span>
 <span class="c1">//</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">rename</span>
-<span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A2</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">B2</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">impl</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">A</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">B</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">rename</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">A2</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">B2</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">impl</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">A2</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">T</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">B2</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">A2</span><span class="o">&lt;</span><span class="n">T</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">B2</span><span class="o">&gt;</span>
-    <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">B2</span><span class="o">&lt;</span><span class="n">T</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">A2</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">B2</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">impl</span><span class="o">&lt;</span><span class="n">A2</span><span class="o">&lt;</span><span class="n">T</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">B2</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B2</span><span class="o">&lt;</span><span class="n">T</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">impl</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 <span class="c1">/// Rename the type list **L** with the variadic template name **N**.</span>
 <span class="c1">///</span>
@@ -167,59 +168,59 @@
 <span class="c1">/// rename_t&lt;list&lt;int,char&gt;,std::tuple&gt; // std::tuple&lt;int,char&gt;</span>
 <span class="c1">/// ```</span>
 <span class="c1">/// \endverbatim</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">L</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">N</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">rename_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">rename</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">L</span><span class="p">,</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">N</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">rename_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">rename</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// rename to void function</span>
 <span class="c1">//</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">rename_to_void_function</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">rename_to_void_function</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">rename_to_void_function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">Ts</span><span class="p">...)</span><span class="o">&gt;</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">rename_to_void_function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">Ts</span><span class="p">...)</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">rename_to_void_function_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">rename_to_void_function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">rename_to_void_function_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">rename_to_void_function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// head</span>
 <span class="c1">//</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">head_x</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">head_x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">head</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">head_x</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">head_x</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">/// The first type in type list **L**.</span>
 <span class="c1">///</span>
 <span class="c1">/// \tparam L The type list.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">head_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">head</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">head_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">head</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T2</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">second_x</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T2</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T2</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">second_x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T2</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">second</span> <span class="o">=</span> <span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">second_x</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">second_x</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">/// The second type in type list **L**.</span>
 <span class="c1">///</span>
 <span class="c1">/// \tparam L The type list.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">second_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">second</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">second_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">second</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// tail</span>
 <span class="c1">//</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">tail_x</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">tail_x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">tail_x</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">tail_x</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">/// A type list containing all but the first type of type list **L**.</span>
 <span class="c1">///</span>
 <span class="c1">/// \tparam L The type list.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">tail_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">tail</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">tail_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">tail</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// size</span>
 <span class="c1">//</span>
@@ -227,55 +228,55 @@
 <span class="cm">   @brief The length of the list</span>
 <span class="cm">   @tparam L The list</span>
 <span class="cm">   @returns The length of the list (as an integral constant type)</span>
-<span class="cm"> */</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">size_x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">,</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Ts</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">size_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">,</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Ts</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">size</span> <span class="o">=</span> <span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">size_x</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">size_x</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">size_x_v</span> <span class="o">=</span> <span class="n">size_x</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size_x_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size_x</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief The length of the list</span>
 <span class="cm">   @tparam L The list</span>
 <span class="cm">   @returns The length of the list (as an integer)</span>
-<span class="cm"> */</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">size_v</span> <span class="o">=</span> <span class="n">size</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief Is the list empty?</span>
 <span class="cm">   @tparam L The list</span>
 <span class="cm">   @returns True if the list is empty, false otherwise (as an integral constant).</span>
-<span class="cm"> */</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">empty_x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Ts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">empty_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Ts</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">empty_x_v</span> <span class="o">=</span> <span class="n">empty_x</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty_x_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">empty_x</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">empty</span> <span class="o">=</span> <span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span> <span class="n">empty_x</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rename_t</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">empty_x</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief Is the list empty?</span>
 <span class="cm">   @tparam L The list</span>
 <span class="cm">   @returns True if the list is empty, false otherwise.</span>
-<span class="cm"> */</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">empty_v</span> <span class="o">=</span> <span class="n">empty</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">empty</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 
 <span class="cm">/**</span>
 <span class="cm">   @brief Identity function</span>
 <span class="cm">   @tparam L The list</span>
 <span class="cm">   @returns The list</span>
-<span class="cm"> */</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">identity</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span> <span class="p">};</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">identity</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="p">};</span> <span class="c1">// mp</span>
+<span class="p">};</span><span class="w"> </span><span class="c1">// mp</span>
 </pre></div>
 </div>
 </section>

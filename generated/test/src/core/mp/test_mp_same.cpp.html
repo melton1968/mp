@@ -16,6 +16,7 @@
         <script src="../../../../../_static/underscore.js"></script>
         <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -97,48 +98,48 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright (C) 2019, 2021 by Mark Melton</span>
 <span class="c1">//</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/same.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/constants.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/same.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/constants.h&quot;</span><span class="cp"></span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">core</span><span class="p">;</span>
-<span class="k">using</span> <span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">StaticAssertTypeEq</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">core</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">StaticAssertTypeEq</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">NeedsParameter</span>
-<span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">NeedsParameter</span><span class="w"></span>
+<span class="p">{};</span><span class="w"></span>
 
-<span class="n">TEST</span><span class="p">(</span><span class="n">MP</span><span class="p">,</span> <span class="n">At</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">using</span> <span class="n">L</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_a</span><span class="p">,</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_c</span><span class="p">,</span><span class="n">mp_d</span><span class="p">,</span><span class="n">mp_e</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="p">{</span>
-        <span class="c1">// using R = mp::is_same_template_t&lt;L,mp::list&gt;;</span>
-        <span class="c1">// StaticAssertTypeEq&lt;R, std::true_type&gt;();</span>
+<span class="n">TEST</span><span class="p">(</span><span class="n">MP</span><span class="p">,</span><span class="w"> </span><span class="n">At</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">mp_a</span><span class="p">,</span><span class="n">mp_b</span><span class="p">,</span><span class="n">mp_c</span><span class="p">,</span><span class="n">mp_d</span><span class="p">,</span><span class="n">mp_e</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// using R = mp::is_same_template_t&lt;L,mp::list&gt;;</span>
+<span class="w">        </span><span class="c1">// StaticAssertTypeEq&lt;R, std::true_type&gt;();</span>
 
-        <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">is_same_template_v</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="c1">// using R = mp::is_same_template_t&lt;L,std::tuple&gt;;</span>
-        <span class="c1">// StaticAssertTypeEq&lt;R,std::false_type&gt;();</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">is_same_template_v</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// using R = mp::is_same_template_t&lt;L,std::tuple&gt;;</span>
+<span class="w">        </span><span class="c1">// StaticAssertTypeEq&lt;R,std::false_type&gt;();</span>
 
-        <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">is_same_template_v</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="c1">// using R = mp::is_same_template_t&lt;mp::list&lt;&gt;,NeedsParameter&gt;;</span>
-        <span class="c1">// StaticAssertTypeEq&lt;R,std::false_type&gt;();</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">is_same_template_v</span><span class="o">&lt;</span><span class="n">L</span><span class="p">,</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// using R = mp::is_same_template_t&lt;mp::list&lt;&gt;,NeedsParameter&gt;;</span>
+<span class="w">        </span><span class="c1">// StaticAssertTypeEq&lt;R,std::false_type&gt;();</span>
 
-        <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">is_same_template_v</span><span class="o">&lt;</span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">,</span><span class="n">NeedsParameter</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">is_same_template_v</span><span class="o">&lt;</span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">,</span><span class="n">NeedsParameter</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">InitGoogleTest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nf">RUN_ALL_TESTS</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">InitGoogleTest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RUN_ALL_TESTS</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

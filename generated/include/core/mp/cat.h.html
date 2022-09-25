@@ -16,6 +16,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -128,34 +129,34 @@
 <span class="c1">//</span>
 
 <span class="cp">#pragma once</span>
-<span class="cp">#include</span> <span class="cpf">&quot;core/mp/list.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;core/mp/list.h&quot;</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">core</span><span class="o">::</span><span class="n">mp</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">core</span><span class="o">::</span><span class="nn">mp</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
 <span class="c1">// concatenation</span>
 <span class="c1">//</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">cat</span>
-<span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">B</span><span class="p">,</span><span class="k">typename</span><span class="p">...</span> <span class="n">Lx</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">impl</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">cat</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Lx</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">impl</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">B</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span>
-    <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">B</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">impl</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">B</span><span class="p">,</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">Lx</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Tx</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">B</span><span class="p">,</span><span class="n">Lx</span><span class="o">&lt;</span><span class="n">Tx</span><span class="p">...</span><span class="o">&gt;&gt;</span>
-    <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">Lx</span><span class="o">&lt;</span><span class="n">Tx</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Lx</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Tx</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">impl</span><span class="o">&lt;</span><span class="n">B</span><span class="p">,</span><span class="n">Lx</span><span class="o">&lt;</span><span class="n">Tx</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lx</span><span class="o">&lt;</span><span class="n">Tx</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">B</span><span class="p">,</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">L1</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">T1</span><span class="p">,</span>
-             <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">L2</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">T2</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Lr</span><span class="o">&gt;</span>
-    <span class="k">struct</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">B</span><span class="p">,</span><span class="n">L1</span><span class="o">&lt;</span><span class="n">T1</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">L2</span><span class="o">&lt;</span><span class="n">T2</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Lr</span><span class="p">...</span><span class="o">&gt;</span>
-    <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">cat</span><span class="o">&lt;</span><span class="n">L1</span><span class="o">&lt;</span><span class="n">T1</span><span class="p">...,</span> <span class="n">T2</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Lr</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span> <span class="p">};</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">L1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">T1</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">L2</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Lr</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">impl</span><span class="o">&lt;</span><span class="n">B</span><span class="p">,</span><span class="n">L1</span><span class="o">&lt;</span><span class="n">T1</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">L2</span><span class="o">&lt;</span><span class="n">T2</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Lr</span><span class="p">...</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">cat</span><span class="o">&lt;</span><span class="n">L1</span><span class="o">&lt;</span><span class="n">T1</span><span class="p">...,</span><span class="w"> </span><span class="n">T2</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Lr</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="nb">true</span><span class="p">,</span><span class="n">L</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">impl</span><span class="o">&lt;</span><span class="nb">true</span><span class="p">,</span><span class="n">L</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 <span class="c1">/// Concatenate the given type lists **L**.</span>
 <span class="c1">///</span>
@@ -166,10 +167,10 @@
 <span class="c1">/// cat_t&lt;list&lt;int&gt;,list&lt;char&gt;&gt; // list&lt;int,char&gt;</span>
 <span class="c1">/// ```</span>
 <span class="c1">/// \endverbatim</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">L</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">cat_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">cat</span><span class="o">&lt;</span><span class="n">L</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">cat_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">cat</span><span class="o">&lt;</span><span class="n">L</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span><span class="w"></span>
 
-<span class="p">};</span> <span class="c1">// core::mp</span>
+<span class="p">};</span><span class="w"> </span><span class="c1">// core::mp</span>
 </pre></div>
 </div>
 </section>
