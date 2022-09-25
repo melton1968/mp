@@ -40,7 +40,7 @@ include(cmake/cpp_core_find_package.cmake)
 
 set(FMT_INSTALL ON CACHE INTERNAL "Have fmt create the install target")
 cpp_core_find_package(fmt VERSION 9.1.0)
-cpp_core_find_package(pp)
+cpp_core_find_package(pp URL /Users/mmelton/work/cpp-core/pp)
 
 # Output configuration
 #

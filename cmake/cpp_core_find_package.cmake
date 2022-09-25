@@ -13,29 +13,36 @@ function(cpp_core_find_package NAME)
   else()
     set(URL https://github.com/cpp-core/${NAME})
   endif()
+
+  if (DEFINED CCFP_VERSION)
+    set(VERSION ${CCFP_VERSION})
+  else()
+    set(VERSION main)
+  endif()
+
+  if (${CCFP_EXCLUDE_FROM_ALL})
+    set(EXCLUDE_FROM_ALL EXCLUDE_FROM_ALL)
+  endif()
   
   message("-- cpp_core_find_package NAME: ${NAME}")
   message("-- cpp_core_find_package URL: ${URL}")
-  message("-- cpp_core_find_package VERSION: ${CCFP_VERSION}")
+  message("-- cpp_core_find_package VERSION: ${VERSION}")
+  message("-- cpp_core_find_package EXCLUDE_FROM_ALL: ${EXCLUDE_FROM_ALL}")
   
   include(FetchContent)
+  
+  FetchContent_Declare(
+    ${NAME}
+    GIT_REPOSITORY ${URL}
+    GIT_TAG ${VERSION}
+    GIT_SHALLOW TRUE
+    FIND_PACKAGE_ARGS
+    )
 
-  if (DEFINED CCFP_VERSION)
-    FetchContent_Declare(
-      ${NAME}
-      GIT_REPOSITORY ${URL}
-      GIT_TAG ${CCFP_VERSION}
-      GIT_SHALLOW TRUE
-      FIND_PACKAGE_ARGS
-      )
-  else()
-    FetchContent_Declare(
-      ${NAME}
-      GIT_REPOSITORY ${URL}
-      GIT_TAG main
-      GIT_SHALLOW TRUE
-      FIND_PACKAGE_ARGS
-      )
+  find_package(${NAME} QUIET)
+  
+  if (TARGET ${NAME} OR TARGET ${NAME}::${NAME})
+    return()
   endif()
 
   FetchContent_GetProperties(${NAME})
@@ -43,11 +50,7 @@ function(cpp_core_find_package NAME)
   
   if (NOT ${lc_name}_POPULATED)
     FetchContent_Populate(${NAME})
-    if (${CCFP_EXCLUDE_FROM_ALL})
-      add_subdirectory(${${lc_name}_SOURCE_DIR} ${${lc_name}_BINARY_DIR} EXCLUDE_FROM_ALL)
-    else()
-      add_subdirectory(${${lc_name}_SOURCE_DIR} ${${lc_name}_BINARY_DIR})
-    endif()
+    add_subdirectory(${${lc_name}_SOURCE_DIR} ${${lc_name}_BINARY_DIR} ${EXCLUDE_FROM_ALL})
   endif()
   
 endfunction()
