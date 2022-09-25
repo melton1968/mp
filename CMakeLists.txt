@@ -38,6 +38,7 @@ option(MP_DOCS "Generate the docs." OFF)
 include(GNUInstallDirs)
 include(cmake/cpp_core_find_package.cmake)
 
+set(FMT_INSTALL ON CACHE INTERNAL "Have fmt create the install target")
 cpp_core_find_package(fmt VERSION 9.1.0)
 cpp_core_find_package(pp)
 
@@ -47,8 +48,7 @@ message("-- mp: Configuration: ${CMAKE_CURRENT_SOURCE_DIR}")
 message("-- mp: Included from: ${CMAKE_SOURCE_DIR}")
 message("-- mp: MP_TEST ${MP_TEST}")
 message("-- mp: MP_DOCS ${MP_DOCS}")
-message("-- mp: DEPENDS_BUILD_DIR ${DEPENDS_BUILD_DIR}")
-message("-- mp: DEPENDS_INSTALL_DIR ${DEPENDS_INSTALL_DIR}")
+message("-- mp: CMAKE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX}")
 
 # Compilation
 #
@@ -64,20 +64,17 @@ add_link_options(-stdlib=libc++)
 add_library(mp INTERFACE)
 add_library(mp::mp ALIAS mp) # Allow interop between FetchContent and FindPackage.
 
-target_link_libraries(mp INTERFACE fmt::fmt pp::pp)
+# Define the header files for this library.
+#
+file(GLOB_RECURSE PUBLIC_INCLUDE_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} include/*.h)
+target_sources(mp INTERFACE FILE_SET HEADERS BASE_DIRS include FILES ${PUBLIC_INCLUDE_FILES})
 
-target_include_directories(mp INTERFACE
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+target_link_libraries(mp INTERFACE fmt::fmt pp::pp)
 
 # Optionally configure the tests
 #
 if(MP_TEST)
   enable_testing()
-  if (NOT TARGET check)
-    add_custom_target(check ${CMAKE_CTEST_COMMAND})
-    add_custom_target(check_detail ${CMAKE_CTEST_COMMAND} -V)
-  endif()
   add_subdirectory(test)
 endif()
 
@@ -87,12 +84,7 @@ if(MP_DOCS)
   add_subdirectory(docs)
 endif()
 
-
-# Install header files
-#
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/core/mp DESTINATION include/core)
-
 # Install config
 #
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install_config.cmake)
-install_config(mp DEPENDS fmt)
+include(cmake/install_config.cmake)
+install_config(mp)
