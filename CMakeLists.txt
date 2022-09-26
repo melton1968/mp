@@ -33,15 +33,6 @@ endif()
 option(MP_TEST "Generate the tests." OFF)
 option(MP_DOCS "Generate the docs." OFF)
 
-# Add our dependencies
-#
-include(GNUInstallDirs)
-include(cmake/cpp_core_find_package.cmake)
-
-set(FMT_INSTALL ON CACHE INTERNAL "Have fmt create the install target")
-cpp_core_find_package(fmt VERSION 9.1.0)
-cpp_core_find_package(pp)
-
 # Output configuration
 #
 message("-- mp: Configuration: ${CMAKE_CURRENT_SOURCE_DIR}")
@@ -50,7 +41,7 @@ message("-- mp: MP_TEST ${MP_TEST}")
 message("-- mp: MP_DOCS ${MP_DOCS}")
 message("-- mp: CMAKE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX}")
 
-# Compilation
+# Setup compilation
 #
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -61,6 +52,17 @@ add_compile_options(-stdlib=libc++)
 add_compile_options(-O)
 add_link_options(-stdlib=libc++)
 
+# Add our dependencies
+#
+include(GNUInstallDirs)
+include(cmake/cpp_core_find_package.cmake)
+
+set(FMT_INSTALL ON CACHE INTERNAL "Have fmt create the install target")
+cpp_core_find_package(fmt VERSION 9.1.0)
+cpp_core_find_package(pp)
+
+# Build the library
+#
 add_library(mp INTERFACE)
 add_library(mp::mp ALIAS mp) # Allow interop between FetchContent and FindPackage.
 
