@@ -24,6 +24,7 @@ jobs:
       with:
         repository: cpp-core/mp
         path: mp
+        submodules: recursive
         
     - name: Build and run the tests
       run: |
