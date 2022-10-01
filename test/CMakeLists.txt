@@ -1,11 +1,7 @@
 cmake_minimum_required (VERSION 3.12 FATAL_ERROR)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test/bin)
 
-cpp_core_find_package(GTest
-  URL https://github.com/cpp-core/googletest
-  VERSION v1.12.0
-  EXCLUDE_FROM_ALL)
 find_package(Threads REQUIRED)
 
 set(TESTS
@@ -48,5 +44,4 @@ set(LIBRARIES
   Threads::Threads
   )
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/../cmake/configure_tests.cmake)
 configure_tests("core" "${LIBRARIES}" ${TESTS})
