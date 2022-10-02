@@ -7,6 +7,3 @@
 [submodule "extern/googletest"]
 	path = extern/googletest
 	url = ../googletest
-[submodule "extern/cmake"]
-	path = extern/cmake
-	url = ../cmake

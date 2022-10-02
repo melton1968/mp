@@ -17,8 +17,9 @@ option(MP_DOCS "Generate the docs." OFF)
 if(PROJECT_NAME STREQUAL CMAKE_PROJECT_NAME)
   # Include the cmake helpers
   #
-  include(extern/cmake/utils/all.cmake)
-  include(extern/cmake/recipes/all.cmake)
+  set(CPP_CORE_CMAKE_DIR ${CMAKE_SOURCE_DIR}/extern/pp/extern/cmake)
+  include(${CPP_CORE_CMAKE_DIR}/utils/all.cmake)
+  include(${CPP_CORE_CMAKE_DIR}/recipes/all.cmake)
   
   # Geneerte the tests
   #
