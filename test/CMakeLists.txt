@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.12 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.24 FATAL_ERROR)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test/bin)
 

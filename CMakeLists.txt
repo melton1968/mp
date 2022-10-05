@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.24 FATAL_ERROR)
 project (mp VERSION 0.1 LANGUAGES C CXX)
 
 # Make including this file idempotent
@@ -17,9 +17,8 @@ option(MP_DOCS "Generate the docs." OFF)
 if(PROJECT_NAME STREQUAL CMAKE_PROJECT_NAME)
   # Include the cmake helpers
   #
-  set(CPP_CORE_CMAKE_DIR ${CMAKE_SOURCE_DIR}/extern/pp/extern/cmake)
-  include(${CPP_CORE_CMAKE_DIR}/utils/all.cmake)
-  include(${CPP_CORE_CMAKE_DIR}/recipes/all.cmake)
+  include(${CPP_CORE_SOURCE_DIR}/projects/cmake/utils/all.cmake)
+  include(${CPP_CORE_SOURCE_DIR}/projects/cmake/recipes/all.cmake)
   
   # Geneerte the tests
   #
@@ -33,6 +32,10 @@ if(PROJECT_NAME STREQUAL CMAKE_PROJECT_NAME)
   #
   make_submodule_pull_target()
 endif()
+
+# Put executables in the top-level binary directory
+#
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Output configuration
 #
