@@ -1,9 +1,0 @@
-[submodule "extern/pp"]
-	path = extern/pp
-	url = ../pp
-[submodule "extern/fmt"]
-	path = extern/fmt
-	url = ../fmt
-[submodule "extern/googletest"]
-	path = extern/googletest
-	url = ../googletest
