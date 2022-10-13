@@ -24,6 +24,7 @@ if(PROJECT_NAME STREQUAL CMAKE_PROJECT_NAME)
       GIT_TAG main
       )
     FetchContent_MakeAvailable(cmake)
+    set(CPP_CORE_CMAKE_DIR ${CMAKE_BINARY_DIR}/_deps/cmake-src)
   endif()
 
   include(${CPP_CORE_CMAKE_DIR}/utils/all.cmake)
