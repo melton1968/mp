@@ -7,6 +7,7 @@ find_package(Threads REQUIRED)
 set(TESTS
   mp/append
   mp/array
+  mp/array_from_pack
   mp/at
   mp/cat
   mp/contains
