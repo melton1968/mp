@@ -7,16 +7,32 @@
 
 namespace core::mp {
 
-template<class T, size_t N>
-consteval auto array_append(const std::array<T, N>& arr, T element) {
-    std::array<T, N + 1> r;
+template<class T, size_t N, class... Us>
+requires (sizeof...(Us) > 0)
+consteval auto array_append(const std::array<T, N>& arr, Us... elements) {
+    std::array<T, N + sizeof...(Us)> r;
     std::copy(arr.begin(), arr.end(), r.begin());
-    r[N] = element;
+
+    std::array<T, sizeof...(Us)> other{T(elements)...};
+    std::copy(other.begin(), other.end(), r.begin() + N);
     return r;
 }
 
+template<class T, size_t N>
+requires (N > 0)
+consteval auto array_append(const std::array<T, N>& arr) {
+    std::array<T, N> r;
+    std::copy(arr.begin(), arr.end(), r.begin());
+    return r;
+}
+
+template<class T, size_t N>
+requires (N == 0)
+consteval auto array_append(const std::array<T, N>& arr) {
+    return std::array<T, N>{};
+}
+
 template<size_t M, class T, size_t N>
-requires (M < N)
 consteval auto array_drop(const std::array<T, N>& arr) {
     std::array<T, N - M> r;
     for (auto i = 0; i < r.size(); ++i)

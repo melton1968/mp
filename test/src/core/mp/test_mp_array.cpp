@@ -19,11 +19,17 @@ static constexpr auto a3 = Array<3>{1, 2, 3};
 
 TEST(MP, ArrayAppend)
 {
-    constexpr auto r0 = mp::array_append(a0, 42);
-    static_assert(r0 == Array<1>{42}, "Array should be { 42 }");
+    constexpr auto r0 = mp::array_append(a0, 42u);
+    static_assert(r0 == Array<1>{ 42 }, "Array should be { 42 }");
     
     constexpr auto r1 = mp::array_append(a3, 42);
-    static_assert(r1 == Array<4>{1, 2, 3, 42}, "Array should be { 1, 2, 3, 42 }");
+    static_assert(r1 == Array<4>{ 1, 2, 3, 42 }, "Array should be { 1, 2, 3, 42 }");
+    
+    constexpr auto r2 = mp::array_append(a0, 1, 2, 3);
+    static_assert(r2 == Array<3>{ 1, 2, 3 }, "Array should be { 1, 2, 3 }");
+    
+    constexpr auto r3 = mp::array_append(a0);
+    static_assert(r3 == Array<0>{}, "Array should be { }");
 }
 
 TEST(MP, ArrayDrop)

@@ -9,7 +9,7 @@ using namespace core;
 template<size_t N>
 using Array = std::array<int,N>;
 
-TEST(MP, PackToArray)
+TEST(MP, ArrayFromPack)
 {
     constexpr auto r0 = mp::array_from_pack<int>();
     static_assert(r0 == Array<0>{}, "Array should be { }");
