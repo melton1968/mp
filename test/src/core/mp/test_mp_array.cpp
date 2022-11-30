@@ -32,6 +32,13 @@ TEST(MP, ArrayAppend)
     static_assert(r3 == Array<0>{}, "Array should be { }");
 }
 
+TEST(MP, ArrayBitOr)
+{
+    constexpr auto b0 = Array<2>{ 1, 2 };
+    constexpr auto r = mp::array_bit_or(b0, 4);
+    static_assert(r == Array<2>{ 5, 2 }, "Array should be { 5, 2 }");
+}
+
 TEST(MP, ArrayDrop)
 {
     constexpr auto r0 = mp::array_drop<1>(a3);
@@ -50,6 +57,13 @@ TEST(MP, ArrayFilter)
     constexpr auto r1 = mp::array_filter(a3, filter1);
     static_assert(r1.first == Array<3>{ 1, 3, 0 }, "Array should be { 1, 3 }");
     static_assert(r0.second == 0, "Array should be {}");
+}
+
+TEST(MP, ArrayShiftLeft)
+{
+    constexpr auto b0 = std::array<uint16_t,2>{ 0x1000, 1 };
+    constexpr auto r = mp::array_shift_left(b0, 4);
+    static_assert(r == std::array<uint16_t,2>{ 0, 0x11 }, "Array should be { 0, 17 }");
 }
 
 TEST(MP, ArrayResize)

@@ -32,6 +32,13 @@ consteval auto array_append(const std::array<T, N>& arr) {
     return std::array<T, N>{};
 }
 
+template<class T, size_t N> requires (N > 0 and std::is_integral_v<T>)
+consteval std::array<T, N> array_bit_or(const std::array<T, N>& arr, const auto n) {
+    std::array<T, N> r = arr;
+    r[0] |= n;
+    return r;
+}
+
 template<size_t M, class T, size_t N>
 consteval auto array_drop(const std::array<T, N>& arr) {
     std::array<T, N - M> r;
@@ -54,6 +61,15 @@ consteval auto array_filter(const std::array<T, N>& arr, const F&& f) {
 	if (f(elem))
 	    r[rdx++] = elem;
     return std::pair{r, rdx};
+}
+
+template<class T, size_t N> requires (N > 0 and std::is_integral_v<T>)
+consteval std::array<T, N> array_shift_left(const std::array<T, N>& arr, const int n) {
+    std::array<T, N> r;
+    r[0] = arr[0] << n;
+    for (auto i = 1; i < N; ++i)
+	r[i] = (arr[i] << n) bitor (arr[i-1] >> (sizeof(T) * CHAR_BIT - n));
+    return r;
 }
 
 template<size_t M, class T, size_t N>
