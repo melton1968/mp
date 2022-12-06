@@ -17,6 +17,36 @@ using Array = std::array<int,N>;
 static constexpr auto a0 = Array<0>{};
 static constexpr auto a3 = Array<3>{1, 2, 3};
 
+TEST(MP, ArrayFind)
+{
+    constexpr auto r0 = mp::array_find<int,1>(a3);
+    static_assert(r0 == 0, "Index should be 0");
+    
+    constexpr auto r1 = mp::array_find<int,2>(a3);
+    static_assert(r1 == 1, "Index should be 1");
+
+    constexpr auto r2 = mp::array_find<int,0>(a3);
+    static_assert(r2 == 3, "Index should be 3");
+}
+
+TEST(MP, ArraySlice)
+{
+    constexpr auto r0 = mp::array_slice<0, 2>(a3);
+    static_assert(r0 == Array<2>{1, 2}, "Array should be {1, 2}");
+    
+    constexpr auto r1 = mp::array_slice<2,a3.size()>(a3);
+    static_assert(r1 == Array<1>{3}, "Array should be {3}");
+}
+
+TEST(MP, ArraySliceFrom)
+{
+    constexpr auto r0 = mp::array_slice_from<1>(a3);
+    static_assert(r0 == Array<2>{2, 3}, "Array should be {2, 3}");
+    
+    constexpr auto r1 = mp::array_slice_to<2>(a3);
+    static_assert(r1 == Array<2>{1, 2}, "Array should be {1, 2}");
+}
+
 TEST(MP, ArrayAppend)
 {
     constexpr auto r0 = mp::array_append(a0, 42u);

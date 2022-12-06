@@ -7,6 +7,41 @@
 
 namespace core::mp {
 
+template<class T, T Elem, class U, size_t N>
+requires std::is_same_v<T, U>
+consteval int array_find(const std::array<U, N>& arr) {
+    for (auto i = 0; i < arr.size(); ++i)
+	if (arr[i] == Elem)
+	    return i;
+    return arr.size();
+}
+
+template<size_t From, size_t To, class T, size_t N>
+consteval auto array_slice(const std::array<T, N>& arr) {
+    std::array<T, To - From> r;
+    for (auto i = 0; i < r.size(); ++i)
+	r[i] = arr[i + From];
+    return r;
+}
+
+template<size_t From, class T, size_t N>
+requires (From < N)
+consteval auto array_slice_from(const std::array<T, N>& arr) {
+    std::array<T, N - From> r;
+    for (auto i = 0; i < r.size(); ++i)
+	r[i] = arr[i + From];
+    return r;
+}
+
+template<size_t To, class T, size_t N>
+requires (To <= N)
+consteval auto array_slice_to(const std::array<T, N>& arr) {
+    std::array<T, To> r;
+    for (auto i = 0; i < r.size(); ++i)
+	r[i] = arr[i];
+    return r;
+}
+
 template<class T, size_t N, class... Us>
 requires (sizeof...(Us) > 0)
 consteval auto array_append(const std::array<T, N>& arr, Us... elements) {
