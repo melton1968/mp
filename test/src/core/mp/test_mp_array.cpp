@@ -17,6 +17,12 @@ using Array = std::array<int,N>;
 static constexpr auto a0 = Array<0>{};
 static constexpr auto a3 = Array<3>{1, 2, 3};
 
+TEST(MP, ArrayProduct)
+{
+    constexpr auto r0 = mp::array_product(a3);
+    static_assert(r0 == 6);
+}
+
 TEST(MP, ArrayFind)
 {
     constexpr auto r0 = mp::array_find<int,1>(a3);

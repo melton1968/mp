@@ -7,6 +7,14 @@
 
 namespace core::mp {
 
+template<class T, size_t N> requires std::is_integral_v<T>
+consteval uint64_t array_product(const std::array<T, N>& arr) {
+    T product{1};
+    for (auto element : arr)
+	product *= element;
+    return product;
+}
+
 template<class T, T Elem, class U, size_t N>
 requires std::is_same_v<T, U>
 consteval int array_find(const std::array<U, N>& arr) {
