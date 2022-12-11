@@ -3,6 +3,7 @@
 
 #pragma once
 #include <type_traits>
+#include "core/mp/list.h"
 
 namespace core::mp
 {
@@ -49,6 +50,19 @@ template<class L, class... Args>
 bool foreach_fold_and(Args&&... args) {
     foreach_iterator<L> impl;
     return impl.fold_and(std::forward<Args>(args)...);
+}
+
+template<class... T, class... Args>
+requires (sizeof...(T) > 1)
+void foreach(Args&&... args) {
+    core::mp::foreach_iterator<list_t<T...>> impl;
+    impl(std::forward<Args>(args)...);
+}
+
+template<class... T, class... Args>
+void foreach1(Args&&... args) {
+    core::mp::foreach_iterator<list_t<T...>> impl;
+    impl(std::forward<Args>(args)...);
 }
 
 }; // mp
