@@ -25,6 +25,7 @@ set(TESTS
   mp/make_index_range
   mp/map_find
   mp/permutation
+  mp/product
   mp/push_front
   mp/remove
   mp/same
