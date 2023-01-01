@@ -50,6 +50,21 @@ consteval auto array_slice_to(const std::array<T, N>& arr) {
     return r;
 }
 
+template<class T, T delim, T... Ts>
+consteval auto array_split() {
+    constexpr auto arr = std::array<T, sizeof...(Ts)>{Ts...};
+    constexpr auto n = array_find<T, delim>(arr);
+    constexpr auto avalid = n > 0, bvalid = n + 1 < arr.size();
+    if constexpr (avalid and bvalid) 
+	return std::pair{array_slice_to<n>(arr), array_slice_from<n + 1>(arr)};
+    else if constexpr (avalid and not bvalid)
+	return std::pair{array_slice_to<n>(arr), std::array<T, 0>{}};
+    else if constexpr (not avalid and bvalid)
+	return std::pair{std::array<T, 0>{}, array_slice_from<n + 1>(arr)};
+    else if constexpr (not avalid and not bvalid)
+	return std::pair{std::array<T, 0>{}, std::array<T, 0>{}};
+}
+
 template<class T, size_t N, class... Us>
 requires (sizeof...(Us) > 0)
 consteval auto array_append(const std::array<T, N>& arr, Us... elements) {

@@ -14,6 +14,9 @@ constexpr bool filter1(int a) {
 template<size_t N>
 using Array = std::array<int,N>;
 
+template<size_t N>
+using CharArray = std::array<char,N>;
+
 static constexpr auto a0 = Array<0>{};
 static constexpr auto a3 = Array<3>{1, 2, 3};
 
@@ -33,6 +36,25 @@ TEST(MP, ArrayFind)
 
     constexpr auto r2 = mp::array_find<int,0>(a3);
     static_assert(r2 == 3, "Index should be 3");
+}
+
+TEST(MP, ArraySplit)
+{
+    constexpr auto p0 = mp::array_split<char, '.', '1', '2', '.', '3', '4'>();
+    static_assert(p0.first == CharArray<2>{'1', '2'}, "Array should be {1, 2}");
+    static_assert(p0.second == CharArray<2>{'3', '4'}, "Array should be {3, 4}");
+    
+    constexpr auto p1 = mp::array_split<char, '.', '1', '2'>();
+    static_assert(p1.first == CharArray<2>{'1', '2'}, "Array should be {1, 2}");
+    static_assert(p1.second == CharArray<0>{}, "Array should be {}");
+    
+    constexpr auto p2 = mp::array_split<char, '.', '1', '2', '.'>();
+    static_assert(p2.first == CharArray<2>{'1', '2'}, "Array should be {1, 2}");
+    static_assert(p2.second == CharArray<0>{}, "Array should be {}");
+    
+    constexpr auto p3 = mp::array_split<char, '.', '.', '1', '2'>();
+    static_assert(p3.first == CharArray<0>{}, "Array should be {}");
+    static_assert(p3.second == CharArray<2>{'1', '2'}, "Array should be {1, 2}");
 }
 
 TEST(MP, ArraySlice)
