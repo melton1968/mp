@@ -41,6 +41,12 @@ consteval auto array_slice_from(const std::array<T, N>& arr) {
     return r;
 }
 
+template<size_t From, class T, size_t N>
+requires (From >= N)
+consteval auto array_slice_from(const std::array<T, N>& arr) {
+    return std::array<T, 0>{};
+}
+
 template<size_t To, class T, size_t N>
 requires (To <= N)
 consteval auto array_slice_to(const std::array<T, N>& arr) {
