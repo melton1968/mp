@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2018, 2019, 2021, 2022 by Mark Melton
+// Copyright (C) 2017, 2018, 2019, 2021, 2022, 2023 by Mark Melton
 //
 
 #pragma once
@@ -31,12 +31,20 @@ inline std::string demangle(std::string const& name)
 { return demangle(name.c_str()); }
 
 template <class T>
-std::string type_name(const T& t)
-{ return decorate<T>(demangle(typeid(t).name())); }
+std::string type_name()
+{
+    if constexpr (std::is_same_v<std::decay_t<T>, __int128_t>)
+	return decorate<T>("int128");
+    else if constexpr (std::is_same_v<std::decay_t<T>, __uint128_t>)
+	return decorate<T>("unsigned int128");
+    else 
+	return decorate<T>(demangle(typeid(T).name()));
+}
 
 template <class T>
-std::string type_name()
-{ return decorate<T>(demangle(typeid(T).name())); }
+std::string type_name(const T& t)
+{ return type_name<T>(); }
+
 
 template<class T>
 constexpr std::string_view function_name()

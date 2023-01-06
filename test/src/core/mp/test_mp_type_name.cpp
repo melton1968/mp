@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019, 2022 by Mark Melton
+// Copyright (C) 2017, 2019, 2022, 2023 by Mark Melton
 //
 
 #include <gtest/gtest.h>
@@ -10,6 +10,7 @@ using namespace std::string_literals;
 TEST(MP, TypeName)
 {
     EXPECT_EQ(mp::type_name<const int>(), "const int"s);
+    EXPECT_EQ(mp::type_name<const __uint128_t>(), "const unsigned int128"s);
 }
 
 int main(int argc, char *argv[])
