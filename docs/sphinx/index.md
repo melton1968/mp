@@ -19,14 +19,12 @@ provide a simple, ergonomic option.
 
 # Installation
 
-## cxx-depends
-
 ```bash
-git clone git@github.com:melton1968/cxx-depends
-mkdir cxx-depends/build && cd cxx-depends/build
-CC=clang-mp-11 CXX=clang++-mp-11 cmake -DCMAKE_INSTALL_PREFIX=$HOME/opt -DCORE_TESTS=ON ..
-make cxx_core_mp-check  # Run the tests
-make cxx_core_mp        # Do the install
+git clone https://github.com/cpp-core/mp
+mkdir mp/build && cd mp/build
+CC=clang-mp-14 CXX=clang++-mp-14 cmake -DCMAKE_INSTALL_PREFIX=$HOME/opt ..
+make -j4 check # Run tests
+make install   # Do the install
 ```
 
 To build the documentation (requires doxygen and sphinx-build to be installed):
