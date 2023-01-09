@@ -10,6 +10,8 @@ mp
 
    traits/ <traits/dir>
    test_mp_append.cpp
+   test_mp_array.cpp
+   test_mp_array_from_pack.cpp
    test_mp_at.cpp
    test_mp_cat.cpp
    test_mp_contains.cpp
@@ -28,6 +30,7 @@ mp
    test_mp_map_find.cpp
    test_mp_nth.cpp
    test_mp_permutation.cpp
+   test_mp_product.cpp
    test_mp_push_front.cpp
    test_mp_remove.cpp
    test_mp_same.cpp

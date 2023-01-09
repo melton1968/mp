@@ -10,6 +10,8 @@ mp
 
    traits/ <traits/dir>
    append.h
+   array.h
+   array_from_pack.h
    at.h
    cat.h
    constants.h
@@ -29,6 +31,7 @@ mp
    mp.h
    nth.h
    permutation.h
+   product.h
    push_front.h
    remove.h
    same.h
