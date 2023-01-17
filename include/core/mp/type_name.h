@@ -8,7 +8,7 @@
 #include <cxxabi.h>
 
 namespace core::mp {
-       
+
 inline std::string demangle(const char* name)
 {
     int status = -4;
@@ -37,6 +37,8 @@ std::string type_name()
 	return decorate<T>("int128");
     else if constexpr (std::is_same_v<std::decay_t<T>, __uint128_t>)
 	return decorate<T>("unsigned int128");
+    else if constexpr (std::is_same_v<std::decay_t<T>, std::string>)
+	return decorate<T>("string");
     else 
 	return decorate<T>(demangle(typeid(T).name()));
 }
@@ -69,5 +71,16 @@ constexpr std::string_view function_name()
     }
     return {};
 }
+
+template<class T>
+inline static auto type_name_v = type_name<T>();
+
+template<class T>
+struct custom_type_name {
+    inline static std::string value = type_name<T>();
+};
+
+template<class T>
+inline static auto custom_type_name_v = custom_type_name<T>::value;
 
 }; // core::mp
