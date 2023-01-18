@@ -77,7 +77,7 @@ inline static auto type_name_v = type_name<T>();
 
 template<class T>
 struct custom_type_name {
-    inline static std::string value = type_name<T>();
+    inline static auto value = type_name<T>();
 };
 
 template<class T>

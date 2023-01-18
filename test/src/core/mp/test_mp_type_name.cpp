@@ -21,6 +21,7 @@ TEST(MP, TypeName)
 
 TEST(MP, CustomTypeName)
 {
+    EXPECT_EQ(mp::custom_type_name_v<int>, "int"s);
     EXPECT_EQ(mp::custom_type_name_v<const int>, "const int"s);
     EXPECT_EQ(mp::custom_type_name_v<const __uint128_t>, "const unsigned int128"s);
     EXPECT_EQ(mp::custom_type_name_v<const std::string>, "const string"s);
