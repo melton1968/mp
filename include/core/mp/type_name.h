@@ -75,12 +75,12 @@ constexpr std::string_view function_name()
 template<class T>
 inline static auto type_name_v = type_name<T>();
 
-template<class T>
+template<class T, class U = T>
 struct custom_type_name {
-    inline static auto value = type_name<T>();
+    inline static auto value = type_name<U>();
 };
 
-template<class T>
-inline static auto custom_type_name_v = custom_type_name<T>::value;
+template<class T, class U = T>
+inline static auto custom_type_name_v = custom_type_name<std::decay_t<T>, U>::value;
 
 }; // core::mp
