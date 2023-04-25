@@ -81,6 +81,6 @@ struct custom_type_name {
 };
 
 template<class T, class U = T>
-inline static auto custom_type_name_v = custom_type_name<std::decay_t<T>, U>::value;
+inline auto custom_type_name_v = custom_type_name<std::decay_t<T>, U>::value;
 
 }; // core::mp
