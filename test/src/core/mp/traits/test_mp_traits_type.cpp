@@ -1,4 +1,4 @@
-// Copyright (C) 2017, 2019, 2022 by Mark Melton
+// Copyright (C) 2017, 2019, 2022, 2023 by Mark Melton
 //
 
 #include <gtest/gtest.h>
@@ -9,7 +9,7 @@ using namespace std::string_literals;
 
 TEST(MP, TraitsType)
 {
-    EXPECT_EQ(mp::type_traits<std::int8_t>::name, "int8"s);
+    EXPECT_EQ(mp::type_traits<std::int8_t>::name, "signed char"s);
 }
 
 int main(int argc, char *argv[])
