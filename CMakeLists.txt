@@ -56,7 +56,7 @@ add_compile_options(-O)
 # Add our dependencies
 #
 add_fmt()
-add_pp()
+add_repo(pp)
 
 # Build the library
 #
